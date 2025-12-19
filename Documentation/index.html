@@ -1,0 +1,674 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>TEJ - Personal Portfolio Template</title>
+<link rel="alternate" type="application/rss+xml" title="frittt.com" href="feed/index.html">
+<link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet"
+        type="text/css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/prism.css">
+<link rel="stylesheet" href="css/preloaders.css">
+</head>
+<body>
+<section>
+  <div class="container">
+  
+  
+    <div class="docs-nav fixed">
+      
+      <div class="theme-logo">
+        <img class="" src="img/logo.png" alt="Tej">
+      </div>
+    <ul>
+      <li><a href="#welcome" class="cc-active">Start</a></li>
+      <li><a href="#files" class="cc-active">Included Files</a></li>
+      <li><a href="#technology" class="cc-active">Technology</a></li>
+      <li class="separator"></li>
+      <li><strong>Customization</strong></li>
+      <li><a href="#html-config" class="cc-active">HTML</a></li>
+      <li><a href="#settings" class="cc-active">Settings</a></li>
+      <li><a href="#preloaders" class="cc-active">Preloaders</a></li>
+      <li><a href="#aos" class="cc-active">Animate On Scroll</a></li>
+      <li><a href="#vue-modules" class="cc-active">Vue components</a></li>
+
+      <li class="separator"></li>
+      <li><strong>Webpack (for advanced)</strong></li>
+      <li><a href="#webpack-resources" class="cc-active">Resources files</a></li>
+      <li><a href="#webpack-setup" class="cc-active">Setup</a></li>
+      <li><a href="#webpack-commands" class="cc-active">Commands</a></li>
+      <li class="separator"></li>
+      <li><a href="#credits" class="cc-active">Sources & Credits</a></li>
+      <li><a href="#support" class="cc-active">Support</a></li>
+    </ul>
+    </div>
+    <div class="docs-content">
+
+      <h1>TEJ - Personal Portfolio Template</h1>
+      <h2 id="welcome">Welcome</h2>
+      <p>Thank you for purchasing our theme. If you have any questions that are beyond the scope of this help file, please feel free to write us an email or contact us via our Themeforest User Page.</p>
+      <hr>
+      <ul>
+      <li>Created: 25-July-2017</li>
+      <li>By: Lukoan</li>
+      <li>Email: <a href="mailto:support@lukoan.com">support@lukoan.com</a></li>
+    </ul>
+
+    
+
+      
+      <hr>
+      <h2 id="files">1. Included Files</h2>
+      <h3>1.1 HTML Files</h3>
+          <ul>
+            <li>home-1.html</li>
+            <li>home-2.html</li>
+            <li>project-list.html</li>
+            <li>project-page.html</li>
+            <li>blog-post.html</li>
+          </ul>
+
+      <h3>1.2 SASS / CSS files</h3>
+
+      <p>All compiled CSS assets are located in the <code>assets/css</code> directory:</p>
+      <ul>
+        <li><code>libs.css</code> - all styles from libraries</li>
+        <li><code>app.css</code> - main styles</li>
+      </ul>
+
+      <p>All precompiled SASS files are located in the <code>resources/sass</code> directory:</p>
+      
+      <ul>
+        <li><code>libs.scss</code> - entry point for libs.css styles</li>
+        <li><code>app.scss</code> - entry point for app.css styles</li>
+        <li><code>_variables.scss</code> - SASS variables</li>
+        <li><code>_mixins.scss</code> - SASS mixins</li>
+        <li><code>patials</code> - SASS partials directory
+          <ul>
+            <li><code>_animations.scss</code> - animations</li>
+            <li><code>_basic.scss</code> - basic styles</li>
+            <li><code>_form.scss</code> - contact form styles</li>
+            <li><code>_navigation.scss</code> - navigation styles</li>
+            <li><code>_preloaders.scss</code> - styles of all preloaders</li>
+            <li><code>_sections.scss</code> - styles of each theme section (Blog, Portfolio etc.)</li>
+          </ul>
+        </li>
+      </ul>
+
+
+      <h3>1.3 JavaScript files and Vue.js modules</h3>
+
+      <p>All compiled JavaScript assets are located in the <code>assets/js</code> directory:</p>
+      <ul>
+        <li><code>libs.js</code> - compiled JS libraries</li>
+        <li><code>app.js</code> - compiled template specific scripts with dependencies</li>
+        <li><code>particles.min.js</code> - particles module</li>
+      </ul>
+
+      <p>All precompiled JavaScript files are located in the <code>resources/js</code> directory:</p>
+      
+      <ul>
+        <li><code>libs.js</code> - here you can require libraries</li>
+        <li><code>app.js</code> - entry point for template specific scripts </li>
+        <li><code>bootstrap.js</code> - importing and defining</li>
+        <li><code>Event.js</code> - Event JS class</li>
+        <li><code>components</code> - Vue.js components directory
+          <ul>
+            <li><code>ContactForm.vue</code> - Contact form module</li>
+            <li><code>FormInput.vue</code> - Form input module</li>
+            <li><code>Counter.vue</code> - Counter module</li>
+            <li><code>IntroTyping.vue</code> - Intro Typing module</li>
+            <li><code>Portfolio.vue</code> - Portfolio module</li>
+            <li><code>PortfolioItem.vue</code> - Portfolio Item module</li>
+            <li><code>Skill.vue</code> - Skill module</li>
+            <li><code>StartArrow.vue</code> - Start Arrow module</li>
+            <li><code>Testimonials.vue</code> - Testimonials module</li>
+            <li><code>Testimonial.vue</code> - Testimonial item module</li>
+          </ul>
+        </li>
+        <li><code>directives</code> - Vue.js components directives directory
+          <ul>
+            <li><code>Carousel.js</code> - OWL Carousel directive</li>
+            <li><code>MagnificPopup.vue</code> - Magnific Popup directive</li>
+          </ul>
+        </li>
+        <li><code>scripts</code> - other scripts directory
+          <ul>
+            <li><code>navigation.js</code> - navigation scripts</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h3>1.4 Settings files</h3>
+      <ul>
+        <li><code>settings/config.js</code> - JavaScript settings</li>
+        <li><code>settings/config.php</code> - PHP settings</li>
+        <li><code>settings/particles-config.json</code> - Particles module settings</li>
+        <li><code>webpack.config.js</code> - Webpack configuration file</li>
+      </ul>
+
+      <h3>1.5 Other files</h3>
+      <ul>
+        <li><code>assets/images</code> - all images of the template</li>
+        <li><code>resources/images</code> - images used by SASS and compiled by Webpack Image Loader</li> 
+        <li><code>send_email.php</code> - script for sending email</li> 
+        <li><code>functions.php</code> - PHP functions file</li> 
+        <li><code>package.json</code> - nmp configuration file, needed to download all template dependencies and run Webpack</li> 
+      </ul>
+      
+
+      <hr>
+      <h2 id="technology">2. Technology</h2>
+      <p>This template is based on Twitters popular front-end framework Bootstrap for fully flexible and responsive layouts. It also uses Vue.js - the progressive JavaScript framework.</p>
+
+      <p>Read more about used technologies:</p>
+      <ul>
+      <li>Boostrap: <a href="//getbootstrap.com/">https://getbootstrap.com/</a></li>
+      <li>Vue.js: <a href="//vuejs.org/">https://vuejs.org/</a></li>
+      </ul>
+
+      <hr>
+      <h2>3. Customization</h2>
+        
+        <h3 id="html-config">3.1 HTML</h3>
+        <p>Now comes the really interesting part! Learn how to use and customize this website template to fit your needs. The most important thing for you to do is actually look into the HTML source code and see how elements are written! The clean and commented code makes it easy for you to copy code blocks from content modules and past them in different places or layouts.</p>
+        
+<pre><code class="language-html">&lt;!-- ========================================= SKILLS ========================================= -->
+  &lt;div class="col-md-5 col-md-offset-1">
+    &lt;div class="about-me-skills">
+      &lt;h4 data-aos="fade">My skils&lt;/h4>
+      &lt;skill percent="80">HTML - &lt;span class="c-silver">5 years of experience&lt;/span>&lt;/skill>
+      &lt;skill percent="90">CSS - &lt;span class="c-silver">4 years of experience&lt;/span>&lt;/skill>
+      &lt;skill percent="75">PHP - &lt;span class="c-silver">3 years of experience&lt;/span>&lt;/skill>
+      &lt;skill percent="70">JavaScript - &lt;span class="c-silver">3 years of experience&lt;/span>&lt;/skill>
+    &lt;/div>
+  &lt;/div>
+&lt;!-- ========================================= SKILLS :END ========================================= --></code></pre>
+    
+    <h3 id="settings">3.2 Settings</h3>
+    <p>All basic settings are located in <code>settings</code> directory:</p>
+    <ul>
+      <li><code>settings/config.js</code> - JavaScript settings</li>
+      <li><code>settings/config.php</code> - PHP settings</li>
+      <li><code>settings/particles-config.json</code> - Particles module configuration</li>
+    </ul>
+
+    <h4>Config.js</h4>
+      <p>Here are located JavaScript specific settings like modules configurations, translations etc. Each part of the file was descripted in comments, for example:</p>
+
+      <pre><code class="language-js">/*
+|--------------------------------------------------------------------------
+| Testimonials slides configuration
+|--------------------------------------------------------------------------
+| Tetimonial module uses OWL Carousel plugin. Here you can configure all
+| its behavior. All available options you can find on the
+| https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html
+*/
+
+testimonials:
+{
+  items: 1, // The number of items you want to see on the screen
+  autoplay: true, // Autoplay
+  autoplaySpeed: 1000, // Autoplay speed
+  loop: true // Infinity loop. Duplicate last and first items to get loop illusion
+},</code></pre>
+    
+    <h4>Config.php</h4>
+    <p>The template uses PHP to send emails and input validation. Here you can configure all of it. Bellow you can see a little part of the file:</p>
+
+<pre><code class="language-php">'contact_form' => [
+  // Basic settings
+  'to' => 'your@email.com',
+  'defaultSubject' => 'Message from Contact Form',
+
+  // Validation rules
+  'validation' => [
+    'name'    =>  'required',
+    'email'   =>  'required|email',
+    'message' =>  'required|min:20',
+  ],
+
+  // Validation messages
+  'validationMessages' => [
+    'required'  => 'This field is required',
+    'email'   => 'Given email address is incorrect',
+    'min:20'  => 'Enter more than 20 characters'
+  ],</code></pre>
+  
+<h4>Particles-config.json</h4>
+
+<p>The file contains configuration of Particles.js module. If you are not familiar with that, you can get a custom configuration by using Online Generator from this <a href="http://vincentgarreau.com/particles.js/">website</a>.
+
+
+<h3 id="preloaders">3.3 Preloaders</h3>
+<p>The template is distributed with Preloaders kit. Here you can choose the favorite one.</p>
+
+<h4>Version 1</h4>
+<div class="level">
+<div class="half">
+<pre><code class="language-html">&lt;div class="Preloader" id="Preloader">
+  &lt;div class="Preloader__center --v1">
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>  
+</div>
+<div class="half --display">
+<div class="Preloader" id="Preloader">
+    <div class="Preloader__center --v1">
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+<h4>Version 2</h4>
+<div class="level">
+<div class="half">
+<pre><code class="language-html">&lt;div class="Preloader">
+  &lt;div class="Preloader__center --v2">
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>  
+</div>
+<div class="half --display">
+<div class="Preloader" id="Preloader">
+    <div class="Preloader__center --v2">
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+<h4>Version 3</h4>
+<div class="level">
+<div class="half">
+<pre><code class="language-html">&lt;div class="Preloader" id="Preloader">
+  &lt;div class="Preloader__center --v3">
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>  
+</div>
+<div class="half --display">
+<div class="Preloader" id="Preloader">
+    <div class="Preloader__center --v3">
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+<h4>Version 4</h4>
+<div class="level">
+<div class="half">
+<pre><code class="language-html">&lt;div class="Preloader" id="Preloader">
+  &lt;div class="Preloader__center --v4">
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>  
+</div>
+<div class="half --display">
+<div class="Preloader" id="Preloader">
+    <div class="Preloader__center --v4">
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<h4>Version 5</h4>
+<div class="level">
+<div class="half">
+<pre><code class="language-html">&lt;div class="Preloader" id="Preloader">
+  &lt;div class="Preloader__center --v5">
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>  
+</div>
+<div class="half --display">
+<div class="Preloader" id="Preloader">
+    <div class="Preloader__center --v5">
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<h4>Version 6</h4>
+<div class="level">
+<div class="half">
+<pre><code class="language-html">&lt;div class="Preloader" id="Preloader">
+  &lt;div class="Preloader__center --v6">
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>  
+</div>
+<div class="half --display">
+<div class="Preloader" id="Preloader">
+    <div class="Preloader__center --v6">
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<h4>Version 7</h4>
+<div class="level">
+<div class="half">
+<pre><code class="language-html">&lt;div class="Preloader" id="Preloader">
+  &lt;div class="Preloader__center --v7">
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+    &lt;div class="Preloader__element">&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>  
+</div>
+<div class="half --display">
+<div class="Preloader" id="Preloader">
+    <div class="Preloader__center --v7">
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<h4>Version 8</h4>
+<div class="level">
+<div class="half">
+<pre><code class="language-html">&lt;div class="Preloader" id="Preloader">
+		&lt;div class="Preloader__center --v8">
+	    &lt;div class="Preloader__element">&lt;/div>
+	    &lt;div class="Preloader__element">&lt;/div>
+	    &lt;div class="Preloader__element">&lt;/div>
+	    &lt;div class="Preloader__element">&lt;/div>
+	    &lt;div class="Preloader__element">&lt;/div>
+	    &lt;div class="Preloader__element">&lt;/div>
+ 	&lt;/div>
+&lt;/div></code></pre>  
+</div>
+<div class="half --display">
+<div class="Preloader" id="Preloader">
+    <div class="Preloader__center --v8">
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+        <div class="Preloader__element"></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+<h3 id="aos">3.4 Animate On Scroll</h3>
+<p>The template uses AOS - Animate On Scroll library. In order to configure global settings go to config.js file.</p> 
+<pre><code class="language-js">/*
+|--------------------------------------------------------------------------
+| AOS - Animate on Scroll
+|--------------------------------------------------------------------------
+| This template uses AOS - small library to animate elements on your page 
+| when you scroll. Here you can configure global settings.
+| All available options you can find at https://github.com/michalsnik/aos
+*/
+  AOS:
+  {
+    offset: 120, // Change offset to trigger animations sooner or later (px)
+    duration: 600, // Duration of animation (accepted values from 50 to 3000, with step 50ms)
+    easing: 'ease-out-quart', // Choose timing function to ease elements in different ways 
+    delay: 100, // Delay animation (ms)
+    anchor: null, // Anchor element, whose offset will be counted to trigger animation instead of actual elements offset
+    placement: 'bottom-top', // Anchor placement - which one position of element on the screen should trigger animation
+    once: false, // Choose wheter animation should fire once, or every time you scroll up/down to element      
+},</code></pre>
+<p> Complete documentation you can find <a href="https://michalsnik.github.io/aos/">here</a>.</p>
+
+<h3 id="vue-modules">3.5 Vue.js components</h3>
+<p>This template uses Vue.js v2.1.10. Complete documentation you can find <a href="http://vuejs.org/">here</a>.</p>
+
+<p>In HTML files you can find non HTML markup like this: </p>
+<pre><code class="language-html">&lt;skill percent="80">HTML - &lt;span class="c-silver">5 years of experience&lt;/span>&lt;/skill>
+&lt;skill percent="90">CSS - &lt;span class="c-silver">4 years of experience&lt;/span>&lt;/skill>
+&lt;skill percent="75">PHP - &lt;span class="c-silver">3 years of experience&lt;/span>&lt;/skill>
+&lt;skill percent="70">JavaScript - &lt;span class="c-silver">3 years of experience&lt;/span>&lt;/skill>
+</code></pre>
+
+<p></p>
+
+<h4>Customization</h4>
+<h5>Method 1: Precompiled source files (for advanced)</h5>
+<p>Precompiled source files of each component you can find <code>resources/js/components</code> directory. After every modification, there is a need to run compilation by using one of following commands: <code>npm run dev</code>, <code>npm run build</code> or <code>npm run production</code>. More information about it you can find in <a href="#webpack-resources">Webbapck section</a>.</p>
+
+<h5>Method 2: Replacing original templates in HTML file by using inline-template syntax</h5>
+<p>If you are not familiar with Webpack and npm, you can modify each of Vue.js component by using <a href="https://vuejs.org/v2/guide/components.html#Inline-Templates">inline-template syntax</a>. In this case there is no need to compile source files.</p>
+
+<p>When the <code>inline-template</code> special attribute is present on a child component, the component will use its inner content as its template, rather than treating it as distributed content.</p> <p>In order to modify component template, just follow the steps bellow:</p>
+
+<ol>
+<li>Given we have standard Vue.js component
+<pre><code class="language-html">&lt;skill percent="80">HTML - &lt;span class="c-silver">5 years of experience&lt;/span>&lt;/skill>
+</code></pre>
+  </li>
+  <li>Put <code>inline-template</code> attribute into component tag
+<pre><code class="language-html">&lt;skill percent="80" inline-template>HTML - &lt;span class="c-silver">5 years of experience&lt;/span>&lt;/skill>
+</code></pre>
+  </li>
+
+  <li>Grab template specific code from component file (eg. <code>resources/js/components/Skill.vue</code>) and put it into component tag
+<pre><code class="language-html">&lt;skill percent="80" inline-template>
+  &lt;div class="Skill">
+    &lt;div class="Skill__head">
+      &lt;span class="Skill__title flex">HTML - &lt;span class="c-silver">5 years of experience&lt;/span>&lt;/span>
+      &lt;span class="Skill__percent">{{percent}}%&lt;/span>
+    &lt;/div>
+    &lt;div class="Skill__bar">
+      &lt;div class="Skill__bar-filling">&lt;/div>
+    &lt;/div>
+  &lt;/div>
+&lt;/skill>
+</code></pre>
+  </li>
+  <li>Now you are able to modify HTML code directly in HTML file.
+
+  </li>
+</ol>
+
+<h2>4. Webpack (for advanced)</h2>
+<p>The template is distributed with configured <code>webpack.config.js</code> and package.json file. So you already have the ready environment for working with SASS, JS (ES2015) and Vue Components templates.</p>
+<h3 id="webpack-resources">4.1 Resource Files</h3>
+<p>All precompiled files are located in the <code>resources</code> folder. Below are listed the most important directories:</p>
+<ul>
+  <li><code>resources/sass</code> - SASS (SCSS) files</li>
+  <li><code>resources/js</code> - JavaScript files</li>
+  <li><code>resources/js/components</code> - Vue Componetns specific files (each of component has own file with template and JS)</li>
+  <li><code>resources/images</code> - images used by SASS and compiled by Webpack Image Loader</li>
+</ul>
+
+<h3 id="webpack-setup">4.2 Setup</h3>
+<ol>
+  <li>Install Node.js according <a href="https://docs.npmjs.com/getting-started/installing-node">the instruction</a>.</li>
+  <li>By using console (command prompt) install all project dependencies.
+<pre><code class="language-bash">npm install</code></pre>    
+  </li>
+  <li>And that's it! You are ready to go.</li>
+</ol>
+<p>In order to modify Webpack settings go to <code>webpack.config.js</code> file.</p>
+
+
+<h3 id="webpack-commands">4.3 Commands</h3>
+<ul>
+  <li>
+    <code>npm run build</code> - run a single compilation of resources files.
+  </li>
+  <li>
+    <code>npm run dev</code> - run a compilation of resources files with <i>watch</i> option.
+  </li>
+  <li>
+    <code>npm run production</code> - run a compilation of resources files with minimization (uglify).
+  </li>
+</ul>
+
+
+<h2 id="credits">5. Credits</h2>
+<h3>5.1 Frameworks, Plugins and libraries</h3>
+<li><a href="http://getbootstrap.com/">Boostrap</a></li>
+<li><a href="http://vuejs.org/">Vue.js</a></li>
+<li><a href="https://jquery.com/">jQuery</a></li>
+<li><a href="http://dimsemenov.com/plugins/magnific-popup/">Magnific Popup</a></li>
+<li><a href="https://daneden.github.io/animate.css/">Animate.css</a></li>
+<li><a href="https://github.com/michalsnik/aos">AOS</a></li>
+<li><a href="https://github.com/mzabriskie/axios">Axios</a></li>
+<li><a href="https://owlcarousel2.github.io/OwlCarousel2/">OWL Carousel</a></li>
+
+<h3>5.2 Fonts</h3>
+<li><a href="https://www.npmjs.com/package/et-line">Et Line Icons</a></li>
+<li><a href="https://www.npmjs.com/package/font-awesome">Fonts Awesome</a></li>
+<li><a href="https://fonts.google.com/">Google Fonts</a></li>
+
+<h3>5.3 Image Credits</h3>
+<ul>
+  <li><a href="https://www.pexels.com/">Pexels</a></li>
+</ul>
+
+<h2 id="support">6. Support</h2>
+<p>Sometimes it is faster and more effective to solve problems through communication. So for problems you cannot solve with help of this documentation please send us a message and we will see how we can help!</p>
+<p>Email: <a href="mailto:support@lukoan.com">support@lukoan.com</a></p>
+
+
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="">
+    <p> &copy; Copyright Lukoan. All Rights Reserved.</p>
+  </div>
+</footer>
+<script src="js/jquery.min.js"></script> 
+<script src="js/prism.js"></script>
+<script src="js/layout.js"></script>
+</body>
+</html>

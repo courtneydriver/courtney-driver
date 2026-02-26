@@ -1256,7 +1256,8 @@ blockquote {
 .Navigation__bar {
   width: 100%;
   z-index: 1000;
-  padding: 10px 30px;
+  padding: 18px 30px;
+  min-height: 84px;
   background: transparent;
   transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
@@ -1321,7 +1322,7 @@ blockquote {
 }
 
 .Navigation__bar .navbar-brand {
-  padding: 10px 0 0 0px;
+  padding: 0;
 }
 
 .Navigation--scrolled .Navigation__bar {

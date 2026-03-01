@@ -30,6 +30,12 @@
             border: none !important;
             box-shadow: none !important;
         }
+        /* Fix iOS Safari: background-attachment:fixed breaks mobile hero */
+        @media (max-width: 991px) {
+            .Intro--single-photo {
+                background-attachment: scroll !important;
+            }
+        }
     </style>
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

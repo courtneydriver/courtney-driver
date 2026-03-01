@@ -852,6 +852,7 @@ html,
 body,
 #tej {
   height: 100%;
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -1256,19 +1257,23 @@ blockquote {
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }
 
-.Navigation__bar {
+.Navigation__bar,
+.Navigation__bar.navbar {
   width: 100%;
   z-index: 1000;
   padding: 12px 30px;
   min-height: 0 !important;
   height: auto;
   overflow: hidden;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  -webkit-box-shadow: none;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
   transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
@@ -1278,15 +1283,7 @@ blockquote {
   clear: both;
 }
 
-.Navigation__bar.navbar {
-  background-color: transparent !important;
-  background-image: none !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  filter: none !important;
-}
+/* .navbar overrides merged into .Navigation__bar rule above */
 
 .Navigation__bar .navbar-header,
 .Navigation__bar .navbar-collapse {
@@ -1500,15 +1497,20 @@ blockquote {
 
 .Intro {
   font-family: "Montserrat";
-  height: 100%;
+  height: 100vh;
   min-height: 100vh;
+  width: 100%;
   padding: 0px;
   position: relative;
   overflow: hidden;
 }
 
 .Intro--single-photo {
-  background: url(../images/intro.jpg?6f898bac584d2539f5f86c28c5529e35) no-repeat fixed 50% 50%/cover;
+  background-image: url(../images/intro.jpg?6f898bac584d2539f5f86c28c5529e35);
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .Intro--single-photo:after {

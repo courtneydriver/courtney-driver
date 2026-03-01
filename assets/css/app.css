@@ -1336,7 +1336,7 @@ blockquote {
   padding-top: 15px;
   padding-bottom: 10px;
   min-height: 72px;
-  background: rgba(0, 0, 0, 0.2);
+  background: transparent;
 }
 
 .Navigation__mobile-menu {

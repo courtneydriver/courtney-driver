@@ -43,6 +43,10 @@
             background: #000000 !important;
             background-color: #000000 !important;
         }
+        /* Force scroll down text to lowercase */
+        .StartArrow__body {
+            text-transform: lowercase !important;
+        }
         /* Fix iOS Safari: background-attachment:fixed not supported on mobile */
         @media (max-width: 767px) {
             .Intro {
@@ -102,7 +106,7 @@
         <div class="Intro Intro--single-photo" id="Intro" style="background-image: url(assets/images/hdr-storefront1.png)">
             <div id="particles-js"></div>
             <intro-typing></intro-typing>
-            <start-arrow text="Scroll down"></start-arrow>
+            <start-arrow text="scroll down"></start-arrow>
         </div>
 
         <!-- ABOUT -->

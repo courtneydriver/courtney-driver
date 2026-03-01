@@ -23,17 +23,29 @@
     <!-- Nav transparency fix -->
     <style>
         .Navigation__bar,
+        .Navigation__bar.navbar,
         .Navigation:not(.Navigation--scrolled) .Navigation__bar,
         nav.navbar.navbar-fixed-top {
             background: transparent !important;
             background-color: transparent !important;
+            background-image: none !important;
             border: none !important;
             box-shadow: none !important;
+            -webkit-box-shadow: none !important;
             min-height: 0 !important;
             height: auto !important;
+            overflow: hidden !important;
+        }
+        .Navigation__bar .navbar-header,
+        .Navigation__bar .navbar-collapse {
+            background: transparent !important;
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
         }
         .Navigation--scrolled .Navigation__bar {
             background: #000000 !important;
+            background-color: #000000 !important;
         }
         /* Fix iOS Safari: background-attachment:fixed not supported on mobile */
         @media (max-width: 767px) {

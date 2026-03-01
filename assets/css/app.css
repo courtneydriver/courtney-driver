@@ -1259,10 +1259,36 @@ blockquote {
   padding: 12px 30px;
   min-height: 0 !important;
   height: auto;
+  overflow: hidden;
   background: transparent;
   border: none;
   box-shadow: none;
+  -webkit-box-shadow: none;
   transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.Navigation__bar::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.Navigation__bar.navbar {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  filter: none !important;
+}
+
+.Navigation__bar .navbar-header,
+.Navigation__bar .navbar-collapse {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .Navigation__bar .navbar-nav li a {

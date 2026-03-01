@@ -35,10 +35,16 @@
         .Navigation--scrolled .Navigation__bar {
             background: #000000 !important;
         }
-        /* Fix iOS Safari: background-attachment:fixed breaks mobile hero */
-        @media (max-width: 991px) {
+        /* Fix iOS Safari: background-attachment:fixed not supported on mobile */
+        @media (max-width: 767px) {
+            .Intro {
+                min-height: 100svh;
+                min-height: 100vh;
+            }
             .Intro--single-photo {
                 background-attachment: scroll !important;
+                background-position: center center !important;
+                background-size: cover !important;
             }
         }
     </style>

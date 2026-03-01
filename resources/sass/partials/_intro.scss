@@ -5,6 +5,7 @@
 .Intro {
     font-family: $headline_font;
     height: 100%;
+    min-height: 100vh;
     padding: 0px;
     position: relative;
     overflow: hidden;
@@ -22,6 +23,23 @@
     &--minimal{
         background: #5BC0BE;
     }
+}
+
+/* Mobile hero fix */
+@media all and (max-width: 767px) {
+    .Intro {
+        min-height: 100svh;
+        min-height: 100vh;
+    }
+    .Intro--single-photo {
+        background-attachment: scroll;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+.Intro {
     .IntroTyping {
         position: absolute;
         height: 100%;

@@ -1470,6 +1470,7 @@ blockquote {
 .Intro {
   font-family: "Montserrat";
   height: 100%;
+  min-height: 100vh;
   padding: 0px;
   position: relative;
   overflow: hidden;
@@ -1490,6 +1491,21 @@ blockquote {
 
 .Intro--minimal {
   background: #5BC0BE;
+}
+
+/* Mobile hero fix */
+@media all and (max-width: 767px) {
+  .Intro {
+    min-height: 100svh;
+    min-height: 100vh;
+  }
+  .Intro--single-photo {
+    background-image: url(../images/hdr-storefront1.png);
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 .Intro .IntroTyping {

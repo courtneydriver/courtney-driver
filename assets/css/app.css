@@ -1251,6 +1251,11 @@ blockquote {
 .Navigation {
   transition: width 2s ease-in-out;
   width: 100%;
+  height: auto;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .Navigation__bar {

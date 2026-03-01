@@ -10,6 +10,8 @@
         z-index: 1000;
         padding: 10px 30px;
         background: transparent;
+        border: none;
+        box-shadow: none;
         transition: all $pageSwithingTime $easeInOutQuad;
         .navbar-nav {
             li {

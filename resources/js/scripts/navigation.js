@@ -2,10 +2,16 @@ $(function()
 {
     setNavbar();
     $(window).on('scroll', () => setNavbar());
+    $(window).on('resize', () => setNavbar());
 
     function setNavbar()
     {
-        if (scrollFromTop() > 100)
+        var $intro = $('#Intro'),
+            introBottom = $intro.length ? $intro.offset().top + $intro.outerHeight() : 0,
+            navHeight = $('.Navigation__bar').outerHeight() || 0,
+            threshold = introBottom > 0 ? Math.max(0, introBottom - navHeight) : 100;
+
+        if (scrollFromTop() >= threshold)
         {
             $('.Navigation').addClass('Navigation--scrolled');
         }

@@ -13328,9 +13328,17 @@ $(function () {
     $(window).on('scroll', function () {
         return setNavbar();
     });
+	$(window).on('resize', function () {
+		return setNavbar();
+	});
 
     function setNavbar() {
-        if (scrollFromTop() > 100) {
+		var $intro = $('#Intro'),
+			introBottom = $intro.length ? $intro.offset().top + $intro.outerHeight() : 0,
+			navHeight = $('.Navigation__bar').outerHeight() || 0,
+			threshold = introBottom > 0 ? Math.max(0, introBottom - navHeight) : 100;
+
+		if (scrollFromTop() >= threshold) {
             $('.Navigation').addClass('Navigation--scrolled');
         } else {
             $('.Navigation').removeClass('Navigation--scrolled');

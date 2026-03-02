@@ -57,6 +57,9 @@
             background-size: cover !important;
             background-repeat: no-repeat !important;
         }
+        #Intro.Intro--single-photo:after {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.55) 100%) !important;
+        }
         /* Fix iOS Safari: background-attachment:fixed not supported on mobile */
         @media (max-width: 767px) {
             .Intro {
@@ -65,7 +68,7 @@
             }
             .Intro--single-photo {
                 background-attachment: scroll !important;
-                background-position: center center !important;
+                background-position: center 62% !important;
                 background-size: cover !important;
             }
         }

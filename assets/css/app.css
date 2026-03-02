@@ -1535,7 +1535,7 @@ blockquote {
     min-height: 100vh;
   }
   .Intro--single-photo {
-    background-image: url(../images/hdr-storefront1.png);
+    background-image: url(../images/hdr-storefront1-clean.png);
     background-attachment: scroll;
     background-position: center 62%;
     background-size: cover;

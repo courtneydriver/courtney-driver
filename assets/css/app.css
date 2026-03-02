@@ -1508,7 +1508,7 @@ blockquote {
 .Intro--single-photo {
   background-image: url(../images/intro.jpg?6f898bac584d2539f5f86c28c5529e35);
   background-attachment: scroll;
-  background-position: center center;
+  background-position: center 62%;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -1537,7 +1537,7 @@ blockquote {
   .Intro--single-photo {
     background-image: url(../images/hdr-storefront1.png);
     background-attachment: scroll;
-    background-position: center center;
+    background-position: center 62%;
     background-size: cover;
     background-repeat: no-repeat;
   }

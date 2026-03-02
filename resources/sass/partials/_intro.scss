@@ -13,7 +13,7 @@
     &--single-photo {
         background-image: url(#{$imagesPath}/intro.jpg);
         background-attachment: scroll;
-        background-position: center center;
+        background-position: center 62%;
         background-size: cover;
         background-repeat: no-repeat;
         &:after {
@@ -40,7 +40,7 @@
     }
     .Intro--single-photo {
         background-attachment: scroll;
-        background-position: center center;
+        background-position: center 62%;
         background-size: cover;
         background-repeat: no-repeat;
     }

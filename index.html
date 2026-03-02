@@ -19,8 +19,7 @@
     <!-- Nav transparency fix -->
     <style>
         .Navigation__bar,
-        .Navigation__bar.navbar,
-        nav.navbar.navbar-fixed-top {
+        .Navigation__bar.navbar {
             background: transparent !important;
             background-color: transparent !important;
             background-image: none !important;
@@ -41,6 +40,11 @@
         .Navigation--scrolled .Navigation__bar {
             background: #000000 !important;
             background-color: #000000 !important;
+        }
+        .Navigation.Navigation--scrolled nav.Navigation__bar.navbar.navbar-fixed-top {
+            background: #000000 !important;
+            background-color: #000000 !important;
+            background-image: none !important;
         }
         .Navigation:not(.Navigation--scrolled) .Navigation__bar,
         .Navigation:not(.Navigation--scrolled) .Navigation__bar.navbar {

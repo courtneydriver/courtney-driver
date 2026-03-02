@@ -86,6 +86,13 @@
             }
         }
     }
+    &:not(.Navigation--scrolled) {
+        .Navigation {
+            &__bar {
+                background: linear-gradient(to bottom, rgba(84, 84, 84, 0.64) 0%, rgba(84, 84, 84, 0.28) 58%, rgba(84, 84, 84, 0) 100%);
+            }
+        }
+    }
     &__mobile-menu {
         display: none;
     }
@@ -93,6 +100,13 @@
 
 @media all and (max-width: 767px) {
     .Navigation {
+        &:not(.Navigation--scrolled) {
+            .Navigation {
+                &__bar {
+                    background: linear-gradient(to bottom, rgba(64, 64, 64, 0.72) 0%, rgba(64, 64, 64, 0.3) 62%, rgba(64, 64, 64, 0) 100%);
+                }
+            }
+        }
         &__mobile-menu {
             display: inline;
             float: right;

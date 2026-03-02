@@ -13,14 +13,13 @@
     <!-- CSS Libraries -->
     <link href="assets/css/libs.css" rel="stylesheet">
     <!-- Theme styles -->
-    <link href="assets/css/app.css?v=20260301-2" rel="stylesheet">
+    <link href="assets/css/app.css?v=20260301-3" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Nav transparency fix -->
     <style>
         .Navigation__bar,
         .Navigation__bar.navbar,
-        .Navigation:not(.Navigation--scrolled) .Navigation__bar,
         nav.navbar.navbar-fixed-top {
             background: transparent !important;
             background-color: transparent !important;
@@ -43,6 +42,11 @@
             background: #000000 !important;
             background-color: #000000 !important;
         }
+        .Navigation:not(.Navigation--scrolled) .Navigation__bar,
+        .Navigation:not(.Navigation--scrolled) .Navigation__bar.navbar {
+            background: linear-gradient(to bottom, rgba(84, 84, 84, 0.64) 0%, rgba(84, 84, 84, 0.28) 58%, rgba(84, 84, 84, 0) 100%) !important;
+            background-color: transparent !important;
+        }
         html, body, #tej, #Intro {
             min-height: 100vh;
         }
@@ -63,13 +67,17 @@
         /* Fix iOS Safari: background-attachment:fixed not supported on mobile */
         @media (max-width: 767px) {
             .Intro {
-                min-height: 100svh;
-                min-height: 100vh;
+                height: 86svh !important;
+                min-height: 86svh !important;
             }
             .Intro--single-photo {
                 background-attachment: scroll !important;
-                background-position: center 62% !important;
+                background-position: 56% 26% !important;
                 background-size: cover !important;
+            }
+            .Navigation:not(.Navigation--scrolled) .Navigation__bar,
+            .Navigation:not(.Navigation--scrolled) .Navigation__bar.navbar {
+                background: linear-gradient(to bottom, rgba(64, 64, 64, 0.72) 0%, rgba(64, 64, 64, 0.30) 62%, rgba(64, 64, 64, 0) 100%) !important;
             }
         }
     </style>

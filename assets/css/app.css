@@ -1367,7 +1367,7 @@ blockquote {
   padding-top: 15px;
   padding-bottom: 15px;
   min-height: auto;
-  background: transparent;
+  background: linear-gradient(to bottom, rgba(84, 84, 84, 0.64) 0%, rgba(84, 84, 84, 0.28) 58%, rgba(84, 84, 84, 0) 100%);
 }
 
 .Navigation__mobile-menu {
@@ -1531,15 +1531,19 @@ blockquote {
 /* Mobile hero fix */
 @media all and (max-width: 767px) {
   .Intro {
-    min-height: 100svh;
-    min-height: 100vh;
+    height: 86svh;
+    min-height: 86svh;
   }
   .Intro--single-photo {
     background-image: url(../images/hdr-storefront1-clean.png);
     background-attachment: scroll;
-    background-position: center 62%;
+    background-position: 56% 26%;
     background-size: cover;
     background-repeat: no-repeat;
+  }
+
+  .Navigation:not(.Navigation--scrolled) .Navigation__bar {
+    background: linear-gradient(to bottom, rgba(64, 64, 64, 0.72) 0%, rgba(64, 64, 64, 0.3) 62%, rgba(64, 64, 64, 0) 100%);
   }
 }
 

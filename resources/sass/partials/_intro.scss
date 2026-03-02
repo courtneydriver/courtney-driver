@@ -35,12 +35,12 @@
 /* Mobile hero fix */
 @media all and (max-width: 767px) {
     .Intro {
-        min-height: 100svh;
-        min-height: 100vh;
+        height: 86svh;
+        min-height: 86svh;
     }
     .Intro--single-photo {
         background-attachment: scroll;
-        background-position: center 62%;
+        background-position: 56% 26%;
         background-size: cover;
         background-repeat: no-repeat;
     }

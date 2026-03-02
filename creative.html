@@ -16,7 +16,88 @@
     <!-- CSS Libraries -->
     <link href="assets/css/libs.css" rel="stylesheet">
     <!-- Theme styles -->
-    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=20260301-4" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: "Calton Elegance Script";
+            src: url("assets/fonts/Calton%20Elegance%20Script.otf") format("opentype");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        #Preloader {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        .Navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 3000;
+        }
+        .Navigation__bar,
+        .Navigation__bar.navbar {
+            background: #000000 !important;
+            background-color: #000000 !important;
+            border: none !important;
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+        }
+        .Navigation--scrolled .Navigation__bar,
+        .Navigation--scrolled .Navigation__bar.navbar {
+            background: #000000 !important;
+            background-color: #000000 !important;
+        }
+        .Topbar.Topbar--page {
+            position: relative;
+            top: auto;
+            left: auto;
+            width: 100%;
+            z-index: 10;
+            margin-top: 76px;
+            font-size: 1.65em;
+            background: transparent !important;
+            background-color: transparent !important;
+            color: #000000 !important;
+            text-align: center;
+        }
+        .Topbar.Topbar--page .Topbar__title {
+            color: #000000 !important;
+            padding-top: 50px;
+        }
+        .Portfolio-item a:hover .Portfolio-item__name,
+        .Portfolio-item a:focus .Portfolio-item__name,
+        .Portfolio-item a:focus-visible .Portfolio-item__name {
+            font-family: "Calton Elegance Script", "Times New Roman", serif !important;
+            font-weight: normal;
+            letter-spacing: 0;
+            text-transform: lowercase;
+            font-size: calc(1.5em + 4pt);
+        }
+        .Portfolio-item a:before,
+        .Portfolio-item a:after {
+            background: rgba(0, 0, 0, 0.75) !important;
+            opacity: 0.55 !important;
+        }
+        .Portfolio-item a:hover:before,
+        .Portfolio-item a:hover:after,
+        .Portfolio-item a:focus:before,
+        .Portfolio-item a:focus:after,
+        .Portfolio-item a:focus-visible:before,
+        .Portfolio-item a:focus-visible:after {
+            opacity: 0.95 !important;
+        }
+        @media (max-width: 767px) {
+            .Topbar.Topbar--page {
+                margin-top: 68px;
+                padding: 12px 16px;
+                font-size: 1.15em;
+            }
+        }
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -30,10 +111,30 @@
         <!-- Preloader-->
         <div class="Preloader" id="Preloader"></div>
         <!-- /Preloader-->
-        <div class="Topbar">
-            <div class="Topbar__goback">
-                <a href="index.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-            </div>
+        <div class="Navigation">
+            <nav class="Navigation__bar navbar navbar-fixed-top">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html#Intro">
+                        <img src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver" class="img-responsive" style="max-height:48px; width:auto; padding-bottom:2px;">
+                    </a>
+                    <div class="Navigation__mobile-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="Navigation__navbar-nav navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html#Intro">Start</a></li>
+                        <li><a href="index.html#About">About me</a></li>
+                        <li><a href="brands.html">Brands</a></li>
+                        <li class="active"><a href="creative.html">Work</a></li>
+                        <li><a href="index.html#Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="Topbar Topbar--page">
             <div class="Topbar__title">
                 CAMPAIGNS + PROJECTS
             </div>
@@ -101,7 +202,7 @@
     </script>
 
     <!-- Application scripts -->
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js?v=20260301-3"></script>
 </body>
 
 </html>

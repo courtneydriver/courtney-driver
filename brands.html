@@ -17,7 +17,71 @@
     <!-- CSS Libraries -->
     <link href="assets/css/libs.css" rel="stylesheet">
     <!-- Theme styles -->
-    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=20260301-4" rel="stylesheet">
+    <style>
+        #Preloader {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        .Navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 3000;
+        }
+        .Navigation__bar,
+        .Navigation__bar.navbar {
+            background: #000000 !important;
+            background-color: #000000 !important;
+            border: none !important;
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+        }
+        .Navigation--scrolled .Navigation__bar,
+        .Navigation--scrolled .Navigation__bar.navbar {
+            background: #000000 !important;
+            background-color: #000000 !important;
+        }
+        .Topbar.Topbar--page {
+            position: relative;
+            top: auto;
+            left: auto;
+            width: 100%;
+            z-index: 10;
+            margin-top: 76px;
+            font-size: 1.65em;
+            background: transparent !important;
+            background-color: transparent !important;
+            color: #000000 !important;
+            text-align: center;
+        }
+        .Topbar.Topbar--page .Topbar__title {
+            color: #000000 !important;
+            padding-top: 50px;
+        }
+        .Topbar.Topbar--page p {
+            margin: 10px 0 0;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #7a7a7a;
+        }
+        #Blog-post {
+            margin-top: -100px;
+        }
+        @media (max-width: 767px) {
+            .Topbar.Topbar--page {
+                margin-top: 68px;
+                padding: 12px 16px;
+                font-size: 1.15em;
+            }
+            .Topbar.Topbar--page p {
+                font-size: 12px;
+            }
+        }
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -31,16 +95,36 @@
         <!-- Preloader-->
         <div class="Preloader" id="Preloader"></div>
         <!-- /Preloader-->
-        <div class="Topbar">
-            <div class="Topbar__goback">
-                <a href="index.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-            </div>
+        <div class="Navigation">
+            <nav class="Navigation__bar navbar navbar-fixed-top">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html#Intro">
+                        <img src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver" class="img-responsive" style="max-height:48px; width:auto; padding-bottom:2px;">
+                    </a>
+                    <div class="Navigation__mobile-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="Navigation__navbar-nav navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html#Intro">Start</a></li>
+                        <li><a href="index.html#About">About me</a></li>
+                        <li class="active"><a href="brands.html">Brands</a></li>
+                        <li><a href="creative.html">Work</a></li>
+                        <li><a href="index.html#Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="Topbar Topbar--page">
             <div class="Topbar__title">
                 BRANDS + AGENCIES
             </div>
-            <p style="font-size: 18px;">CAMPAIGNS / PARTNERSHIPS / COLLABORATIONS</p>
+            <p>CAMPAIGNS / PARTNERSHIPS / COLLABORATIONS</p>
         </div>
-        <section id="Blog-post" class="blog-post space-from-topbar">
+        <section id="Blog-post" class="blog-post">
             <div class="section--basic">
                 <div class="container">
                     <div class="row">
@@ -101,7 +185,7 @@
     <!-- JavaScript Libraries (jQuery, Vue.js etc.) -->
     <script src="assets/js/libs.js"></script>
     <!-- Application scripts -->
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js?v=20260301-3"></script>
 </body>
 
 </html>

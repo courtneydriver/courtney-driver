@@ -15,6 +15,9 @@
         border: none;
         box-shadow: none;
         transition: all $pageSwithingTime $easeInOutQuad;
+        transition-property: background, background-color, padding, box-shadow;
+        transition-duration: 150ms;
+        transition-timing-function: ease-out;
         .navbar-nav {
             li {
                 a {

@@ -84,6 +84,73 @@
                 background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.62) 62%, rgba(0, 0, 0, 0) 100%) !important;
             }
         }
+
+        #About .col-md-8.col-md-offset-2 {
+            width: 100%;
+            margin-left: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        #About .headline {
+            text-align: left;
+            margin-bottom: 8px;
+        }
+        #About .headline h2 {
+            text-align: left;
+            margin: 0;
+        }
+        #About .about-me h4 {
+            margin-top: 0;
+        }
+        #About .about-me,
+        #About .about-me-text,
+        #About .about-me h4,
+        #About .about-me p {
+            text-align: left;
+        }
+        #About .about-me-text img {
+            float: right;
+            margin: 0 0 20px 40px !important;
+            max-width: 400px !important;
+            width: 45% !important;
+        }
+        @media (min-width: 768px) {
+            #About .about-me-text img {
+                transform: translateY(-42px);
+            }
+        }
+        @media (max-width: 767px) {
+            #About .col-md-8.col-md-offset-2 {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            #About .headline {
+                margin-bottom: 10px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            #About .headline h2 {
+                margin-bottom: 0;
+                font-size: 34px;
+                line-height: 1.2;
+                overflow-wrap: anywhere;
+            }
+            #About .about-me {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            #About .about-me h4 {
+                margin-top: 0;
+                margin-bottom: 14px;
+            }
+            #About .about-me-text img {
+                float: none !important;
+                display: block;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 0 14px 0 !important;
+            }
+        }
     </style>
 
 </head>
@@ -120,8 +187,8 @@
                         <li class="active"><a class="page-scroll" href="#Intro">Start</a></li>
                         <li><a class="page-scroll" href="#About">About me</a></li>
                         <li><a href="brands.html">Brands</a></li>
-                        <li><a href="creative.html">Work</a></li>
-                        <li><a class="page-scroll" href="#Contact">Contact</a></li>
+                        <li><a href="creative.html" class="js-work-gated" data-work-target="creative.html">Work</a></li>
+                        <li><a href="mailto:inquiry@courtney-driver.com">Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -131,7 +198,6 @@
         <div class="Intro Intro--single-photo" id="Intro" style="background-image: url(assets/images/hdr-storefront1-clean.png)">
             <div id="particles-js"></div>
             <intro-typing></intro-typing>
-            <start-arrow text="Scroll down"></start-arrow>
         </div>
 
         <!-- ABOUT -->
@@ -146,7 +212,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div>
+                        <div class="col-md-8 col-md-offset-2">
                             <div class="about-me">
                                 <h4 data-aos="fade">Nice to Meet you</h4>
                                 <div class="about-me-text ta-j" data-aos="fade">
@@ -155,7 +221,7 @@
                                     <p>Leveraging an innate understanding of luxury consumerism psychology, I've directed content and campaigns for well over 100 global luxury brands, while simultaneously nurturing rosters of writers, editors, marketers and creatives around the world.</p>
                                     <p>Today I direct creative teams at INNOCEAN for Genesis, the luxury auto arm of Hyundai, while also leading conversations around luxury branding and consumerism, luxury trends, innovation and where they all intersect.</p>
                                     <div class="buttons-group mt-2">
-                                        <a href="#Contact">
+                                        <a href="mailto:inquiry@courtney-driver.com">
                                             <button class="btn btn-black" data-aos="fade" data-aos-delay="150">CONTACT</button>
                                         </a>
                                         <a href="brands.html">
@@ -181,38 +247,6 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
-        <section id="Contact">
-            <div class="section--basic section--darker">
-                <div class="container">
-                    <div class="Contact pt-2">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-1 col-sm-6" data-aos="fade">
-                                <contact-form>
-                                    <form-input name="name" label="Name*"></form-input>
-                                    <form-input name="email" label="E-mail*"></form-input>
-                                    <form-input name="subject" label="Subject"></form-input>
-                                    <form-input name="message" label="Type your message here*" type="textarea"></form-input>
-                                </contact-form>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <h4 data-aos="fade">Luxury Branding + Emerging Technologies + Affluent Consumer Psychology.</h4>
-                                <p>Reach out for speaking engagements, education, training, collaboration and more.</p>
-                                <div class="Contact__details">
-                                    <div class="Contact__detail" data-aos="fade">
-                                        <i class="fa fa-phone"></i>949.423.3755
-                                    </div>
-                                    <div class="Contact__detail" data-aos="fade">
-                                        <i class="fa fa-envelope"></i>courtney@courtney-driver.com
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
         <!-- FOOTER -->
         <footer>
             <div class="container">
@@ -220,7 +254,7 @@
                     <div class="col-sm-4">
                         <div class="footer-contacts">
                             <div class="footer-contact"><i class="fa fa-phone-square"></i>949.423.3755</div>
-                            <div class="footer-contact"><i class="fa fa-envelope-square"></i>courtney@courtney-driver.com</div>
+                            <div class="footer-contact"><i class="fa fa-envelope-square"></i>inquiry@courtney-driver.com</div>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -244,10 +278,130 @@
     <script>
         window.Config.preloader.duration = 1500;
     </script>
+    <script>
+        (function () {
+            var workLinks = document.querySelectorAll('.js-work-gated');
+            if (!workLinks.length) {
+                return;
+            }
+
+            Array.prototype.forEach.call(workLinks, function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    var entered = window.prompt('Enter password to view Work:');
+                    if (entered === null) {
+                        return;
+                    }
+                    if (entered === 'knockknock') {
+                        var target = link.getAttribute('data-work-target') || 'creative.html';
+                        window.location.href = target;
+                    } else {
+                        window.alert('Incorrect password.');
+                    }
+                });
+            });
+        })();
+    </script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/particles.min.js"></script>
     <script>
-        particlesJS.load('particles-js', 'settings/particles-config.json');
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 24,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: '#aeaeae'
+                    },
+                    shape: {
+                        type: 'circle',
+                        stroke: {
+                            width: 0,
+                            color: '#000000'
+                        }
+                    },
+                    opacity: {
+                        value: 0.45,
+                        random: false,
+                        anim: {
+                            enable: true,
+                            speed: 0.075,
+                            opacity_min: 0.3,
+                            sync: true
+                        }
+                    },
+                    size: {
+                        value: 6,
+                        random: true,
+                        anim: {
+                            enable: false,
+                            speed: 40,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#aeaeae',
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 0.72,
+                        direction: 'top',
+                        random: true,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false,
+                        attract: {
+                            enable: true,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'grab'
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'repulse'
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 260,
+                            line_linked: {
+                                opacity: 0.6
+                            }
+                        },
+                        repulse: {
+                            distance: 200,
+                            duration: 0.4
+                        },
+                        push: {
+                            particles_nb: 4
+                        },
+                        remove: {
+                            particles_nb: 2
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+        }
     </script>
 
 </body>

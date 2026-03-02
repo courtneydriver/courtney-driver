@@ -112,7 +112,7 @@
                         <li><a href="index.html#Intro">Start</a></li>
                         <li><a href="index.html#About">About me</a></li>
                         <li class="active"><a href="brands.html">Brands</a></li>
-                        <li><a href="creative.html">Work</a></li>
+                        <li><a href="creative.html" class="js-work-gated" data-work-target="creative.html">Work</a></li>
                         <li><a href="index.html#Contact">Contact</a></li>
                     </ul>
                 </div>
@@ -142,9 +142,6 @@
                                     <p><h4>LIFESTYLE + HOME</h4><br>Horchow, Kalamazoo, Kohler, La Cornue, Sub-Zero/Wolf, Chase Sapphire, Sundance Film Festival, Taste of the NFL, Kohanaiki, Harman Kardon</b></p><br>
                                     <p><h4>NON-PROFIT</h4><br>The Unstoppable Foundation, The Lantern Network, Heal the Bay, Hyundai Hope on Wheels</b></p><br>
                                     <p><h4>AGENCIES</h4><br>INNOCEAN, Edelman, Havas, WPP, Team One, RGM GROUP</b></p><br>
-                                </div>
-                                <div class="blog-post-image">
-                                    <img src="http://courtney-driver.com/assets/images/adlogos.png" alt="Blog Post image">
                                 </div>
                                 </div>
                             </div>
@@ -181,6 +178,30 @@
     <script src="settings/config.js"></script>
     <script>
     window.Config.page = 'blog';
+    </script>
+    <script>
+    (function () {
+        var workLinks = document.querySelectorAll('.js-work-gated');
+        if (!workLinks.length) {
+            return;
+        }
+
+        Array.prototype.forEach.call(workLinks, function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                var entered = window.prompt('Enter password to view Work:');
+                if (entered === null) {
+                    return;
+                }
+                if (entered === 'knockknock') {
+                    var target = link.getAttribute('data-work-target') || 'creative.html';
+                    window.location.href = target;
+                } else {
+                    window.alert('Incorrect password.');
+                }
+            });
+        });
+    })();
     </script>
     <!-- JavaScript Libraries (jQuery, Vue.js etc.) -->
     <script src="assets/js/libs.js"></script>

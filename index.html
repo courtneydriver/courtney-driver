@@ -13,7 +13,7 @@
     <!-- CSS Libraries -->
     <link href="assets/css/libs.css" rel="stylesheet">
     <!-- Theme styles -->
-    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=20260301-1" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Nav transparency fix -->
@@ -43,9 +43,19 @@
             background: #000000 !important;
             background-color: #000000 !important;
         }
-        /* Force scroll down text to lowercase */
-        .StartArrow__body {
-            text-transform: lowercase !important;
+        html, body, #tej, #Intro {
+            min-height: 100vh;
+        }
+        #Intro.Intro {
+            height: 100vh !important;
+            min-height: 100vh !important;
+            width: 100% !important;
+        }
+        #Intro.Intro--single-photo {
+            background-attachment: scroll !important;
+            background-position: center center !important;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
         }
         /* Fix iOS Safari: background-attachment:fixed not supported on mobile */
         @media (max-width: 767px) {
@@ -106,7 +116,7 @@
         <div class="Intro Intro--single-photo" id="Intro" style="background-image: url(assets/images/hdr-storefront1.png)">
             <div id="particles-js"></div>
             <intro-typing></intro-typing>
-            <start-arrow text="scroll down"></start-arrow>
+            <start-arrow text="Scroll down"></start-arrow>
         </div>
 
         <!-- ABOUT -->

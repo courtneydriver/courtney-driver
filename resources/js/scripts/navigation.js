@@ -11,7 +11,7 @@ $(function()
             introBottom = $intro.length ? $intro.offset().top + $intro.outerHeight() : 0,
             navHeight = $('.Navigation__bar').outerHeight() || 0,
             aboutTop = $about.length ? $about.offset().top : 0,
-            threshold = aboutTop > 0 ? Math.max(0, aboutTop - navHeight) : (introBottom > 0 ? Math.max(0, introBottom - navHeight) : 100);
+            threshold = aboutTop > 0 ? Math.max(0, aboutTop - navHeight + 18) : (introBottom > 0 ? Math.max(0, introBottom - navHeight + 18) : 100);
 
         if (scrollFromTop() >= threshold)
         {

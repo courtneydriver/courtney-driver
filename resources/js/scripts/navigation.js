@@ -52,7 +52,7 @@ $(function()
 
         var $target = $(target),
             fixedMenuHeight = $('.Navigation__bar').outerHeight() || $('.navbar-fixed-top').outerHeight() || 0,
-            mobileExtraOffset = window.matchMedia('(max-width: 767px)').matches ? 44 : 2,
+            mobileExtraOffset = window.matchMedia('(max-width: 767px)').matches ? (target === '#About' ? 59 : 44) : 2,
             targetTop = Math.max(0, $target.offset().top - fixedMenuHeight - mobileExtraOffset);
 
         $('html, body').stop().animate(

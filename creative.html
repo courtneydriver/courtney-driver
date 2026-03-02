@@ -68,6 +68,23 @@
             color: #000000 !important;
             padding-top: 50px;
         }
+        .Portfolio--spacing .Portfolio__items {
+            padding: 3px !important;
+            justify-content: center;
+        }
+        .Portfolio__mobile-filter {
+            display: none;
+        }
+        .Portfolio--spacing .Portfolio-item {
+            margin: 3px !important;
+        }
+        .Portfolio--spacing .Portfolio__items .Portfolio-item {
+            margin: 3px !important;
+            max-width: calc(25% - 6px) !important;
+            -webkit-box-flex: 0 !important;
+            -ms-flex: 0 1 calc(25% - 6px) !important;
+            flex: 0 1 calc(25% - 6px) !important;
+        }
         .Portfolio-item__name {
             font-family: "Calton Elegance Script", "Times New Roman", serif !important;
             font-weight: normal;
@@ -106,6 +123,39 @@
                 padding: 12px 16px;
                 font-size: 1.15em;
             }
+            .Topbar.Topbar--page .Topbar__title {
+                padding-top: 24px;
+                padding-bottom: 6px;
+            }
+            .Portfolio--spacing .Portfolio__items {
+                padding: 3px !important;
+            }
+            .Portfolio--spacing .Portfolio__items .Portfolio-item {
+                max-width: calc(100% - 6px) !important;
+                -ms-flex: 0 1 calc(100% - 6px) !important;
+                flex: 0 1 calc(100% - 6px) !important;
+            }
+            .Portfolio__nav {
+                margin-bottom: 0 !important;
+            }
+            .Portfolio__nav ul {
+                display: none !important;
+            }
+            .Portfolio__mobile-filter {
+                display: block;
+                width: calc(100% - 24px);
+                margin: 0 12px 10px;
+                height: 44px;
+                border: 1px solid #d9d9d9;
+                border-radius: 6px;
+                background: #ffffff;
+                color: #000000;
+                font-family: "Montserrat", sans-serif;
+                font-size: 13px;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                padding: 0 12px;
+            }
             .Portfolio-item__name {
                 font-size: calc(1.5em + 4pt);
                 line-height: 1.05;
@@ -115,6 +165,13 @@
             .Portfolio-item a:focus .Portfolio-item__name,
             .Portfolio-item a:focus-visible .Portfolio-item__name {
                 font-size: calc(1.5em + 6pt);
+            }
+        }
+        @media (max-width: 575px) {
+            .Portfolio--spacing .Portfolio__items .Portfolio-item {
+                max-width: calc(100% - 6px) !important;
+                -ms-flex: 0 1 calc(100% - 6px) !important;
+                flex: 0 1 calc(100% - 6px) !important;
             }
         }
     </style>
@@ -223,6 +280,80 @@
 
     <!-- Application scripts -->
     <script src="assets/js/app.js?v=20260301-3"></script>
+    <script>
+    (function () {
+        function initCreativeMobileFilter() {
+            var portfolio = document.querySelector('.Portfolio');
+            if (!portfolio) {
+                return false;
+            }
+
+            var nav = portfolio.querySelector('.Portfolio__nav');
+            if (!nav) {
+                return false;
+            }
+
+            var listItems = nav.querySelectorAll('li');
+            if (!listItems.length) {
+                return false;
+            }
+
+            var existing = portfolio.querySelector('.Portfolio__mobile-filter');
+            if (existing) {
+                return true;
+            }
+
+            var select = document.createElement('select');
+            select.className = 'Portfolio__mobile-filter';
+            select.setAttribute('aria-label', 'Filter projects');
+
+            Array.prototype.forEach.call(listItems, function (item, index) {
+                var option = document.createElement('option');
+                var label = (item.textContent || '').trim();
+                option.value = String(index);
+                option.textContent = label;
+                if (item.classList.contains('active')) {
+                    option.selected = true;
+                }
+                select.appendChild(option);
+            });
+
+            select.addEventListener('change', function () {
+                var selectedItem = listItems[parseInt(select.value, 10)];
+                if (selectedItem) {
+                    selectedItem.click();
+                }
+            });
+
+            nav.parentNode.insertBefore(select, nav.nextSibling);
+
+            nav.addEventListener('click', function () {
+                setTimeout(function () {
+                    var active = nav.querySelector('li.active');
+                    if (!active) {
+                        return;
+                    }
+                    var activeIndex = Array.prototype.indexOf.call(listItems, active);
+                    if (activeIndex > -1) {
+                        select.value = String(activeIndex);
+                    }
+                }, 350);
+            });
+
+            return true;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var tries = 0;
+            var timer = setInterval(function () {
+                tries += 1;
+                if (initCreativeMobileFilter() || tries > 30) {
+                    clearInterval(timer);
+                }
+            }, 150);
+        });
+    })();
+    </script>
 </body>
 
 </html>

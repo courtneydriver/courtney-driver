@@ -13371,11 +13371,19 @@ $(function () {
         var target = this.hash,
             menu = target;
 
-        var $target = $(target);
+		var $target = $(target),
+			fixedMenuHeight = $('.Navigation__bar').outerHeight() || $('.navbar-fixed-top').outerHeight() || 0,
+			mobileExtraOffset = window.matchMedia('(max-width: 767px)').matches ? 12 : 2,
+			targetTop = Math.max(0, $target.offset().top - fixedMenuHeight - mobileExtraOffset);
+
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top + 2
+			'scrollTop': targetTop
         }, 500, 'swing', function () {
-            window.location.hash = target;
+			if (window.history && window.history.replaceState) {
+				window.history.replaceState(null, '', target);
+			} else {
+				window.location.hash = target;
+			}
             $(document).on("scroll", menuChangeOnScroll);
         });
     });

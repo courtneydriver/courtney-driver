@@ -187,7 +187,7 @@
                         <li class="active"><a class="page-scroll" href="#Intro">Start</a></li>
                         <li><a class="page-scroll" href="#About">About me</a></li>
                         <li><a href="brands.html">Brands</a></li>
-                        <li><a href="creative.html" class="js-work-gated" data-work-target="creative.html">Work</a></li>
+                        <li><a href="creative.html" onclick="return gateWorkAccess(event, 'creative.html');">Work</a></li>
                         <li><a href="mailto:inquiry@courtney-driver.com">Contact</a></li>
                     </ul>
                 </div>
@@ -279,28 +279,24 @@
         window.Config.preloader.duration = 1500;
     </script>
     <script>
-        (function () {
-            var workLinks = document.querySelectorAll('.js-work-gated');
-            if (!workLinks.length) {
-                return;
+        function gateWorkAccess(event, targetUrl) {
+            if (event) {
+                event.preventDefault();
             }
 
-            Array.prototype.forEach.call(workLinks, function (link) {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    var entered = window.prompt('Enter password to view Work:');
-                    if (entered === null) {
-                        return;
-                    }
-                    if (entered === 'knockknock') {
-                        var target = link.getAttribute('data-work-target') || 'creative.html';
-                        window.location.href = target;
-                    } else {
-                        window.alert('Incorrect password.');
-                    }
-                });
-            });
-        })();
+            var entered = window.prompt('Enter password to view Work:');
+            if (entered === null) {
+                return false;
+            }
+
+            if (entered.trim() === 'knockknock') {
+                window.location.href = targetUrl || 'creative.html';
+                return true;
+            }
+
+            window.alert('Incorrect password.');
+            return false;
+        }
     </script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/particles.min.js"></script>

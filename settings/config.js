@@ -11,7 +11,7 @@ window.Config = {
     {
         duration: 1900, // Default preloader duration in ms
         defaultDuration: 1900, // Backward-compatible key used by current runtime bundle
-        flashInterval: 180, // How fast the loading text updates in ms
+        flashInterval: 260, // How fast the loading text updates in ms
         countdownFrom: 0, // Number countdown start value; set to 0 to disable
         words: ['taste', 'luxury', 'culture', 'technology', 'positioning']
     },

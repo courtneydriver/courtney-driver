@@ -676,57 +676,6 @@
     <!-- Scripts -->
     <script src="settings/config.js"></script>
     <script>
-        if (window.Config && window.Config.preloader) {
-            window.Config.preloader.duration = 1500;
-        }
-    </script>
-    <script>
-        (function () {
-            var preloaderWord = document.getElementById('PreloaderWord');
-            if (!preloaderWord) {
-                return;
-            }
-
-            var fallbackWords = ['taste', 'luxury', 'culture', 'technology', 'positioning'];
-            var words = (window.Config && window.Config.preloader && Array.isArray(window.Config.preloader.words) && window.Config.preloader.words.length)
-                ? window.Config.preloader.words.slice()
-                : fallbackWords;
-
-            var index = 0;
-            var intervalMs = 300;
-            var switchDelayMs = 78;
-            var minCycleDuration = ((Math.max(words.length, 1) - 1) * intervalMs) + 420;
-
-            if (window.Config && window.Config.preloader) {
-                window.Config.preloader.duration = Math.max(window.Config.preloader.duration || 0, minCycleDuration);
-            }
-
-            var preloaderDuration = (window.Config && window.Config.preloader && window.Config.preloader.duration)
-                ? window.Config.preloader.duration
-                : 1500;
-
-            preloaderWord.textContent = words[0];
-
-            var timer = window.setInterval(function () {
-                if (index >= words.length - 1) {
-                    return;
-                }
-
-                index += 1;
-                preloaderWord.classList.add('is-switching');
-
-                window.setTimeout(function () {
-                    preloaderWord.textContent = words[index];
-                    preloaderWord.classList.remove('is-switching');
-                }, switchDelayMs);
-            }, intervalMs);
-
-            window.setTimeout(function () {
-                window.clearInterval(timer);
-            }, Math.max(preloaderDuration + 320, 1200));
-        })();
-    </script>
-    <script>
         function gateWorkAccess(event, targetUrl) {
             if (event) {
                 event.preventDefault();

@@ -447,15 +447,32 @@
         @media (min-width: 768px) {
             #About .about-me {
                 margin-top: 75px;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(280px, 400px);
+                column-gap: 40px;
+                row-gap: 10px;
+                align-items: start;
+            }
+            #About .about-me h2,
+            #About .about-me h4,
+            #About .about-me .about-me-text {
+                grid-column: 1;
             }
             #About .about-me h4 {
-                clear: right;
                 white-space: normal;
-                max-width: calc(55% - 24px);
+                max-width: none;
                 font-size: clamp(14px, 1.2vw, 21px);
                 letter-spacing: 0.8px;
             }
             #About .about-me .about-me-headshot {
+                grid-column: 2;
+                grid-row: 1 / span 3;
+                justify-self: end;
+                align-self: start;
+                float: none;
+                margin: 0 !important;
+                width: 100% !important;
+                max-width: 400px !important;
                 transform: none;
             }
         }

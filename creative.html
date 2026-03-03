@@ -8,15 +8,17 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
     <title>Courtney Driver</title>
-     <!-- Favicon -->
-    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/cd-black.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="assets/images/cd-black.svg" type="image/svg+xml">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway&amp;subset=latin-ext" rel="stylesheet">
     <!-- CSS Libraries -->
     <link href="assets/css/libs.css" rel="stylesheet">
     <!-- Theme styles -->
     <link href="assets/css/app.css?v=20260301-4" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @font-face {
             font-family: "Calton Elegance Script";
@@ -24,12 +26,6 @@
             font-weight: normal;
             font-style: normal;
             font-display: swap;
-        }
-        #Preloader {
-            display: none !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
         }
         .Navigation {
             position: fixed;
@@ -204,9 +200,8 @@
                     <ul class="nav navbar-nav">
                         <li><a href="index.html#Intro">Start</a></li>
                         <li><a href="index.html#About">About me</a></li>
-                        <li><a href="brands.html">Brands</a></li>
                         <li class="active"><a href="creative.html">Work</a></li>
-                        <li><a href="index.html#Contact">Contact</a></li>
+                        <li><a href="mailto:inquiry@courtney-driver.com">Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -218,22 +213,22 @@
         </div>
         <div class="section--basic --nopadding-bottom">
             <portfolio type="spacing" :data='[
-               {"name": "GENESIS", "image": "https://courtney-driver.com/assets/images/creative/mcw-genesisx-thumb.png", "href": "https://courtney-driver.com/mcw-genesis.html", "tags": ["digital", "AV","experiential"]},
-                {"name": "THE LANTERN NETWORK", "image": "https://courtney-driver.com/assets/images/creative/tln.png", "href": "https://courtney-driver.com/lantern.html", "tags": ["AV", "digital"]},
-                {"name": "GENESIS", "image": "http://courtney-driver.com/assets/images/creative/gv80.png", "href": "https://courtney-driver.com/genesis.html", "tags": ["digital"]},
-                {"name": "ALFA ROMEO", "image": "https://courtney-driver.com/assets/images/creative/alfaromeo.png", "href": "https://courtney-driver.com/alfa.html", "tags": ["digital", "editorial"]},
-                {"name": "COINTREAU", "image": "https://courtney-driver.com/assets/images/creative/cointreau.png", "href": "https://courtney-driver.com/cointreau.html", "tags": ["experiential", "digital"]},
-                {"name": "BURBERRY", "image": "https://courtney-driver.com/assets/images/creative/burberry.png", "href": "https://courtney-driver.com/burberry.html", "tags": ["digital", "editorial"]},
-                {"name": "MILLION DOLLAR LISTING", "image": "https://courtney-driver.com/assets/images/creative/million-dollar-listing.png", "href": "https://courtney-driver.com/milliondollarlisting.html", "tags": ["digital", "editorial"]},
-                {"name": "W HOTELS", "image": "https://courtney-driver.com/assets/images/creative/whotels.png", "href": "https://courtney-driver.com/whotels.html", "tags": ["digital"]},
-                {"name": "SOFI", "image": "https://courtney-driver.com/assets/images/creative/sofi.png", "href": "https://courtney-driver.com/sofi.html", "tags": ["AV"]},
-                {"name": "CAVIT WINES", "image": "https://courtney-driver.com/assets/images/creative/cavit.png", "href": "https://courtney-driver.com/cavit.html", "tags": ["digital", "editorial"]},
-                {"name": "GUESS BY MARCIANO", "image": "https://courtney-driver.com/assets/images/creative/guess.png", "href": "https://courtney-driver.com/guessbymarciano.html", "tags": ["digital", "editorial"]},
-                {"name": "JUSTLUXE", "image": "https://courtney-driver.com/assets/images/creative/justluxe.png", "href": "https://courtney-driver.com/justluxe.html", "tags": ["AV"]},
-                {"name": "VANS", "image": "https://courtney-driver.com/assets/images/creative/vans.png", "href": "https://courtney-driver.com/vans.html", "tags": ["print", "experiential"]},
-                {"name": "JAGUAR", "image": "https://courtney-driver.com/assets/images/creative/jaguar.png", "href": "https://courtney-driver.com/jaguar.html", "tags": ["digital"]},
-                {"name": "PIRELLI", "image": "https://courtney-driver.com/assets/images/creative/pirelli.png", "href": "https://courtney-driver.com/pirelli.html", "tags": ["digital", "editorial"]},
-                 {"name": "FOREVERMARK", "image": "https://courtney-driver.com/assets/images/creative/forevermark.png", "href": "https://courtney-driver.com/forevermark.html", "tags": ["digital", "editorial"]}
+                             {"name": "GENESIS", "image": "assets/images/creative/mcw-genesisx-thumb.png", "href": "mcw-genesis.html", "tags": ["digital", "AV","experiential"]},
+                                {"name": "THE LANTERN NETWORK", "image": "assets/images/creative/tln.png", "href": "lantern.html", "tags": ["AV", "digital"]},
+                                {"name": "GENESIS", "image": "assets/images/creative/gv80.png", "href": "genesis.html", "tags": ["digital"]},
+                                {"name": "ALFA ROMEO", "image": "assets/images/creative/alfaromeo.png", "href": "alfa.html", "tags": ["digital", "editorial"]},
+                                {"name": "COINTREAU", "image": "assets/images/creative/cointreau.png", "href": "cointreau.html", "tags": ["experiential", "digital"]},
+                                {"name": "BURBERRY", "image": "assets/images/creative/burberry.png", "href": "burberry.html", "tags": ["digital", "editorial"]},
+                                {"name": "MILLION DOLLAR LISTING", "image": "assets/images/creative/million-dollar-listing.png", "href": "milliondollarlisting.html", "tags": ["digital", "editorial"]},
+                                {"name": "W HOTELS", "image": "assets/images/creative/whotels.png", "href": "whotels.html", "tags": ["digital"]},
+                                {"name": "SOFI", "image": "assets/images/creative/sofi.png", "href": "sofi.html", "tags": ["AV"]},
+                                {"name": "CAVIT WINES", "image": "assets/images/creative/cavit.png", "href": "cavit.html", "tags": ["digital", "editorial"]},
+                                {"name": "GUESS BY MARCIANO", "image": "assets/images/creative/guess.png", "href": "guessbymarciano.html", "tags": ["digital", "editorial"]},
+                                {"name": "JUSTLUXE", "image": "assets/images/creative/justluxe.png", "href": "justluxe.html", "tags": ["AV"]},
+                                {"name": "VANS", "image": "assets/images/creative/vans.png", "href": "vans.html", "tags": ["print", "experiential"]},
+                                {"name": "JAGUAR", "image": "assets/images/creative/jaguar.png", "href": "jaguar.html", "tags": ["digital"]},
+                                {"name": "PIRELLI", "image": "assets/images/creative/pirelli.png", "href": "pirelli.html", "tags": ["digital", "editorial"]},
+                                 {"name": "FOREVERMARK", "image": "assets/images/creative/forevermark.png", "href": "forevermark.html", "tags": ["digital", "editorial"]}
                 
             ]'>
             </portfolio>
@@ -245,26 +240,18 @@
                     <div class="col-sm-4">
                         <div class="footer-contacts">
                             <div class="footer-contact"><i class="fa fa-phone-square"></i>949.423.3755</div>
-                            <div class="footer-contact"><i class="fa fa-envelope-square"></i>courtney@courtney-driver.com</div>
+                            <div class="footer-contact"><i class="fa fa-envelope-square"></i>inquiry@courtney-driver.com</div>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <style>
-                            .footer-signature { text-align:center; }
-                            .footer-signature img { max-width:160px; height:auto; display:inline-block; }
-                            /* center the adjacent copyrights div */
-                            .footer-signature + .copyrights { text-align:center; }
-                        </style>
-                        <div class="footer-signature">
-                            <img src="http://courtney-driver.com/assets/images/signature-logo-lowercase-white.png" alt="Tej" style="max-width:200px; height:auto; display:inline-block;">
-                        </div>
+                        <img src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver" style="max-width:200px; width:100%; height:auto;">
                         <div class="copyrights">ALL RIGHTS RESERVED</div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="footer-socials">
-                            <a href="https://www.linkedin.com/in/courtneydriver/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-							<a href="https://www.instagram.com/courtneydriver"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            <a href="https://twitter.com/courtneydriver"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <div class="footer-socials text-left">
+                            <a href="https://www.linkedin.com/in/courtneydriver/" style="margin-right:10px;"><i class="fa-brands fa-linkedin fa-2x" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/courtneydriver" style="margin-right:10px;"><i class="fa-brands fa-instagram fa-2x" aria-hidden="true"></i></a>
+                            <a href="https://www.tiktok.com/@courtney..driver"><i class="fa-brands fa-tiktok fa-2x" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

@@ -18,12 +18,179 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Nav transparency fix -->
     <style>
+        @font-face {
+            font-family: "Calton Elegance Script";
+            src: url("assets/fonts/Calton%20Elegance%20Script.otf") format("opentype");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        :root {
+            --ink-base: #0D0D0D;
+            --ink-panel: #0D0D0D;
+            --ink-deep: #0D0D0D;
+            --ink-overlay-start: rgba(13, 13, 13, 0.18);
+            --ink-overlay-end: rgba(13, 13, 13, 0.55);
+            --copy-soft: #A8A7A7;
+            --tone-plum: 32, 16, 32;
+            --tone-wine: 48, 16, 16;
+            --tone-indigo: 16, 16, 32;
+        }
+        html,
+        body,
+        #tej {
+            background: var(--ink-base) !important;
+            background-color: var(--ink-base) !important;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 68px;
+        }
+        #About,
+        .section--basic {
+            background: var(--ink-panel) !important;
+            background-color: var(--ink-panel) !important;
+        }
+        #brand-cloud,
+        footer {
+            background: var(--ink-deep) !important;
+            background-color: var(--ink-deep) !important;
+        }
+        footer {
+            background: linear-gradient(180deg, #0D0D0D 0%, #0D0D0D 60%, rgba(var(--tone-indigo), 0.04) 78%, rgba(var(--tone-plum), 0.06) 90%, rgba(var(--tone-wine), 0.08) 100%), #0D0D0D !important;
+            background-color: #0D0D0D !important;
+        }
+        #Preloader .Preloader__center.--v8 {
+            width: auto !important;
+            height: auto !important;
+        }
+        #Preloader .Preloader__element {
+            display: none !important;
+        }
+        #Preloader .Preloader__words {
+            min-width: 260px;
+            text-align: center;
+        }
+        #PreloaderWord {
+            display: inline-block;
+            font-family: "Calton Elegance Script", "Big Caslon", "Baskerville", serif !important;
+            font-size: clamp(46px, 7vw, 92px);
+            line-height: 1;
+            letter-spacing: 0.2px;
+            color: var(--copy-soft);
+            opacity: 0.96;
+            transform: translateY(0);
+            transition: opacity 0.11s ease, transform 0.11s ease;
+        }
+        #PreloaderWord.is-switching {
+            opacity: 0.62;
+            transform: translateY(1px);
+        }
+        body,
+        p,
+        li,
+        #About .about-me h2,
+        #About .about-me h4,
+        #About .about-me p,
+        #About .Portfolio-item__name,
+        .Navigation__bar .navbar-nav li a,
+        .Navigation__bar .navbar-nav li a:hover,
+        .Navigation__bar .navbar-nav li a:focus,
+        .footer-contact,
+        .copyrights,
+        .footer-socials a,
+        .footer-socials a:hover,
+        .footer-socials a:focus {
+            color: var(--copy-soft) !important;
+        }
+        body,
+        p,
+        li,
+        #About .about-me p,
+        #About .about-me h4,
+        #About .Portfolio-item__blurb,
+        .footer-contact,
+        .copyrights {
+            font-family: Raleway, sans-serif !important;
+            font-weight: 400 !important;
+            text-transform: none !important;
+            letter-spacing: 0.4px;
+        }
+        .Navigation__bar .navbar-nav li a {
+            position: relative;
+            border: none !important;
+            box-shadow: none !important;
+            transition: color 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
+        .Navigation__bar .navbar-nav li,
+        .Navigation__bar .navbar-nav li.active,
+        .Navigation__bar .navbar-nav li.active a {
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .Navigation__bar .navbar-nav li a.page-scroll::before {
+            display: none !important;
+            content: none !important;
+        }
+        .Navigation__bar .navbar-nav li a.page-scroll::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            right: auto !important;
+            top: auto !important;
+            bottom: 8px;
+            width: 26px;
+            height: 1px;
+            background: currentColor;
+            opacity: 0;
+            transform: translateX(-50%) scaleX(0.15);
+            transform-origin: center;
+            transition: transform 0.78s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.68s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .Navigation__bar .navbar-nav li a.page-scroll:not(.nav-current):not(:hover):not(:focus)::after {
+            opacity: 0 !important;
+            transform: translateX(-50%) scaleX(0.15) !important;
+        }
+        .Navigation__bar .navbar-nav li a.page-scroll:hover::after,
+        .Navigation__bar .navbar-nav li a.page-scroll:focus-visible::after {
+            transform: translateX(-50%) scaleX(1);
+            opacity: 0.95;
+        }
+        .Navigation__bar .navbar-nav li a.page-scroll.nav-current::after {
+            transform: translateX(-50%) scaleX(1);
+            opacity: 0.95;
+        }
+        .Navigation__bar .navbar-nav:hover li a.page-scroll.nav-current:not(:hover):not(:focus-visible)::after {
+            opacity: 0 !important;
+            transform: translateX(-50%) scaleX(0.15) !important;
+        }
+        .Navigation__bar .navbar-nav li.active a.page-scroll::after {
+            opacity: 0 !important;
+            transform: translateX(-50%) scaleX(0.15) !important;
+        }
+        .Navigation__bar .navbar-nav li.active a.page-scroll.nav-current::after {
+            opacity: 0.95 !important;
+            transform: translateX(-50%) scaleX(1) !important;
+        }
+        #About .btn.btn-black {
+            border-color: var(--copy-soft) !important;
+            color: var(--copy-soft) !important;
+            background: transparent !important;
+        }
+        #About .btn.btn-black:before,
+        #About .btn.btn-black:after {
+            background: var(--copy-soft) !important;
+        }
+        #About .btn.btn-black:hover {
+            color: var(--ink-base) !important;
+        }
         .Navigation__bar,
         .Navigation__bar.navbar {
             background: transparent !important;
             background-color: transparent !important;
             background-image: none !important;
             border: none !important;
+            border-top: 1px solid rgba(168, 167, 167, 0.34) !important;
             box-shadow: none !important;
             -webkit-box-shadow: none !important;
             min-height: 0 !important;
@@ -38,18 +205,18 @@
             box-shadow: none !important;
         }
         .Navigation--scrolled .Navigation__bar {
-            background: #000000 !important;
-            background-color: #000000 !important;
+            background: var(--ink-base) !important;
+            background-color: var(--ink-base) !important;
         }
         .Navigation.Navigation--scrolled nav.Navigation__bar.navbar.navbar-fixed-top {
-            background: #000000 !important;
-            background-color: #000000 !important;
+            background: var(--ink-base) !important;
+            background-color: var(--ink-base) !important;
             background-image: none !important;
         }
         .Navigation:not(.Navigation--scrolled) .Navigation__bar,
         .Navigation:not(.Navigation--scrolled) .Navigation__bar.navbar {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.55) 58%, rgba(0, 0, 0, 0) 100%) !important;
-            background-color: transparent !important;
+            background: var(--ink-base) !important;
+            background-color: var(--ink-base) !important;
         }
         html, body, #tej, #Intro {
             min-height: 100vh;
@@ -66,7 +233,32 @@
             background-repeat: no-repeat !important;
         }
         #Intro.Intro--single-photo:after {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.55) 100%) !important;
+            background: linear-gradient(to bottom, var(--ink-overlay-start) 0%, var(--ink-overlay-end) 100%) !important;
+        }
+        #Intro .IntroTyping__animated-text {
+            border-right: none !important;
+            color: var(--copy-soft) !important;
+            padding-left: 0.14em !important;
+            margin-left: 0.34em !important;
+            -webkit-animation: typing 4s alternate !important;
+            animation: typing 4s alternate !important;
+        }
+        #Intro .IntroTyping__body,
+        #Intro .IntroTyping__static-text,
+        #Intro .IntroTyping__animated-text {
+            font-family: "Calton Elegance Script", "Times New Roman", serif !important;
+            font-weight: 400 !important;
+            letter-spacing: 0 !important;
+            text-transform: none !important;
+        }
+        #Intro .IntroTyping {
+            height: auto !important;
+            width: 100% !important;
+            top: 84% !important;
+            left: 0 !important;
+            transform: translateY(-50%);
+            align-items: center !important;
+            justify-content: center !important;
         }
         /* Fix iOS Safari: background-attachment:fixed not supported on mobile */
         @media (max-width: 767px) {
@@ -81,7 +273,11 @@
             }
             .Navigation:not(.Navigation--scrolled) .Navigation__bar,
             .Navigation:not(.Navigation--scrolled) .Navigation__bar.navbar {
-                background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.62) 62%, rgba(0, 0, 0, 0) 100%) !important;
+                background: var(--ink-base) !important;
+                background-color: var(--ink-base) !important;
+            }
+            #Intro .IntroTyping {
+                top: 80% !important;
             }
         }
 
@@ -99,8 +295,14 @@
             text-align: left;
             margin: 0;
         }
+        #About .about-me h2 {
+            text-align: left;
+            margin: 0 0 10px 0;
+        }
         #About .about-me h4 {
             margin-top: 0;
+            text-transform: uppercase !important;
+            letter-spacing: 1.1px;
         }
         #About .about-me,
         #About .about-me-text,
@@ -108,15 +310,151 @@
         #About .about-me p {
             text-align: left;
         }
-        #About .about-me-text img {
+        #About .about-me .about-me-headshot {
             float: right;
             margin: 0 0 20px 40px !important;
             max-width: 400px !important;
             width: 45% !important;
         }
+        #About .HomeWorkPreview {
+            margin-top: 19px !important;
+            margin-bottom: 14px !important;
+            transform: translateY(5px);
+        }
+        #About .HomeWorkPreview .Portfolio__items {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        #About .HomeWorkPreview .Portfolio-item__name {
+            font-family: "Calton Elegance Script", "Times New Roman", serif !important;
+            font-size: calc(1.6em + 6pt);
+            text-transform: none;
+            letter-spacing: 0;
+            line-height: 1.05;
+            color: var(--copy-soft) !important;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: calc(100% - 46px);
+            transform: translate(-50%, -50%);
+            opacity: 1;
+            text-align: center;
+            text-wrap: balance;
+            transition: opacity 1.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        #About .HomeWorkPreview .Portfolio-item:nth-child(4) .Portfolio-item__name {
+            white-space: nowrap;
+            font-size: calc(1.4em + 6pt);
+            letter-spacing: 0.08px;
+        }
+        #About .HomeWorkPreview .Portfolio-item__blurb {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: calc(100% - 44px);
+            margin: 0;
+            color: var(--copy-soft);
+            font-size: 14px;
+            line-height: 1.55;
+            letter-spacing: 0.3px;
+            text-transform: none;
+            text-wrap: pretty;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 2.1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s;
+            text-align: center;
+            pointer-events: none;
+        }
+        #About .HomeWorkPreview .Portfolio-item {
+            margin: 8px !important;
+            max-width: calc(25% - 16px) !important;
+            -webkit-box-flex: 0 !important;
+            -ms-flex: 0 1 calc(25% - 16px) !important;
+            flex: 0 1 calc(25% - 16px) !important;
+            background: var(--ink-base);
+            border: 1px solid var(--copy-soft);
+        }
+        #About .HomeWorkPreview .Portfolio-item img {
+            display: none !important;
+        }
+        #About .HomeWorkPreview .Portfolio-item a,
+        #About .HomeWorkPreview .Portfolio-item a:hover,
+        #About .HomeWorkPreview .Portfolio-item a:focus,
+        #About .HomeWorkPreview .Portfolio-item a:focus-visible {
+            min-height: 172px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--ink-base) !important;
+            color: var(--copy-soft) !important;
+            transition: background-color 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            padding: 11px 14px;
+        }
+        #About .HomeWorkPreview .Portfolio-item a:before,
+        #About .HomeWorkPreview .Portfolio-item a:after {
+            display: none !important;
+            content: none !important;
+        }
+        #About .HomeWorkPreview .Portfolio-item a:hover,
+        #About .HomeWorkPreview .Portfolio-item a:focus,
+        #About .HomeWorkPreview .Portfolio-item a:focus-visible {
+            background: linear-gradient(155deg, rgba(var(--tone-indigo), 0.10) 0%, rgba(var(--tone-plum), 0.13) 58%, rgba(var(--tone-wine), 0.16) 100%) !important;
+            color: var(--copy-soft) !important;
+        }
+        #About .HomeWorkPreview .Portfolio-item a:hover .Portfolio-item__name,
+        #About .HomeWorkPreview .Portfolio-item a:focus .Portfolio-item__name,
+        #About .HomeWorkPreview .Portfolio-item a:focus-visible .Portfolio-item__name {
+            opacity: 0;
+        }
+        #About .HomeWorkPreview .Portfolio-item a:hover .Portfolio-item__blurb,
+        #About .HomeWorkPreview .Portfolio-item a:focus .Portfolio-item__blurb,
+        #About .HomeWorkPreview .Portfolio-item a:focus-visible .Portfolio-item__blurb {
+            opacity: 1;
+        }
+        #About .HomeWorkPreview .Portfolio-item.is-tapped a {
+            background: linear-gradient(155deg, rgba(var(--tone-indigo), 0.10) 0%, rgba(var(--tone-plum), 0.13) 58%, rgba(var(--tone-wine), 0.16) 100%) !important;
+            color: var(--copy-soft) !important;
+        }
+        #About .HomeWorkPreview .Portfolio-item.is-tapped .Portfolio-item__name {
+            opacity: 0;
+        }
+        #About .HomeWorkPreview .Portfolio-item.is-tapped .Portfolio-item__blurb {
+            opacity: 1;
+        }
+        #brand-cloud,
+        #brand-cloud .container,
+        #brand-cloud .blog-post-image {
+            background: var(--ink-deep) !important;
+            border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+        #brand-cloud .blog-post-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: var(--ink-deep);
+            border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+            vertical-align: top;
+        }
         @media (min-width: 768px) {
-            #About .about-me-text img {
-                transform: translateY(-42px);
+            #About .about-me {
+                margin-top: 75px;
+            }
+            #About .about-me h4 {
+                white-space: nowrap;
+                font-size: clamp(14px, 1.2vw, 21px);
+                letter-spacing: 0.8px;
+            }
+            #About .about-me .about-me-headshot {
+                transform: none;
             }
         }
         @media (max-width: 767px) {
@@ -128,6 +466,7 @@
                 margin-bottom: 10px;
                 padding-left: 0;
                 padding-right: 0;
+                display: block;
             }
             #About .headline h2 {
                 margin-bottom: 0;
@@ -136,19 +475,44 @@
                 overflow-wrap: anywhere;
             }
             #About .about-me {
+                display: flex;
+                flex-direction: column;
                 margin-left: 0 !important;
                 margin-right: 0 !important;
             }
+            #About .about-me h2 {
+                order: 1;
+            }
             #About .about-me h4 {
+                order: 2;
                 margin-top: 0;
                 margin-bottom: 14px;
             }
-            #About .about-me-text img {
+            #About .about-me .about-me-headshot {
+                order: 3;
                 float: none !important;
                 display: block;
                 width: 100% !important;
                 max-width: 100% !important;
                 margin: 0 0 14px 0 !important;
+            }
+            #About .about-me .about-me-text {
+                order: 4;
+            }
+            #About .HomeWorkPreview {
+                margin-top: 20px;
+            }
+            #About .HomeWorkPreview .Portfolio-item {
+                max-width: calc(50% - 16px) !important;
+                -ms-flex: 0 1 calc(50% - 16px) !important;
+                flex: 0 1 calc(50% - 16px) !important;
+            }
+        }
+        @media (max-width: 575px) {
+            #About .HomeWorkPreview .Portfolio-item {
+                max-width: calc(100% - 16px) !important;
+                -ms-flex: 0 1 calc(100% - 16px) !important;
+                flex: 0 1 calc(100% - 16px) !important;
             }
         }
     </style>
@@ -160,12 +524,9 @@
         <!-- PRELOADER -->
         <div class="Preloader" id="Preloader">
             <div class="Preloader__center --v8">
-                <div class="Preloader__element"></div>
-                <div class="Preloader__element"></div>
-                <div class="Preloader__element"></div>
-                <div class="Preloader__element"></div>
-                <div class="Preloader__element"></div>
-                <div class="Preloader__element"></div>
+                <div class="Preloader__words" aria-live="polite" aria-atomic="true">
+                    <span id="PreloaderWord">taste</span>
+                </div>
             </div>
         </div>
 
@@ -186,8 +547,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a class="page-scroll" href="#Intro">Start</a></li>
                         <li><a class="page-scroll" href="#About">About me</a></li>
-                        <li><a href="brands.html">Brands</a></li>
-                        <li><a href="creative.html" onclick="return gateWorkAccess(event, 'creative.html');">Work</a></li>
+                        <li><a class="page-scroll" href="#Work">Work</a></li>
                         <li><a href="mailto:inquiry@courtney-driver.com">Contact</a></li>
                     </ul>
                 </div>
@@ -197,7 +557,6 @@
         <!-- INTRO -->
         <div class="Intro Intro--single-photo" id="Intro" style="background-image: url(assets/images/hdr-storefront1-clean.png)">
             <div id="particles-js"></div>
-            <intro-typing></intro-typing>
         </div>
 
         <!-- ABOUT -->
@@ -206,26 +565,48 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                            <div class="headline">
-                                <h2>Hi. I'm Courtney.</h2>
+                            <div class="about-me">
+                                <img src="assets/images/headshot2023.png" alt="Courtney Driver" class="img-responsive about-me-headshot" data-aos="fade">
+                                <h2>Hi, I’m Courtney.</h2>
+                                <h4 data-aos="fade">I build luxury brands at the intersection of culture and technology.</h4>
+                                <div class="about-me-text ta-j" data-aos="fade">
+                                    <p>For two decades I’ve shaped global campaigns across luxury advertising and publishing&mdash;translating brand DNA into stories that resonate in a digital world.</p>
+                                    <p>I’ve directed work for more than 100 international luxury brands, leading creative teams and global contributors while navigating the evolving psychology of the modern luxury consumer.</p>
+                                    <p>Today, I serve as Creative Director at INNOCEAN for Genesis, while continuing to explore the evolving psychology of modern luxury and the role of innovation in shaping brand authority.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="about-me">
-                                <h4 data-aos="fade">Nice to Meet you</h4>
-                                <div class="about-me-text ta-j" data-aos="fade">
-                                    <img src="assets/images/headshot2023.png" alt="Courtney Driver" class="img-responsive" data-aos="fade" style="float: right; margin-left: 100px; max-width: 400px; width: 100%; filter: grayscale(100%);">
-                                    <p>Over nearly two decades spent across the luxury advertising and publishing worlds, my entire career has been built on high-level branding and storytelling&mdash;with a digital twist that connects brand DNA with future technologies.</p>
-                                    <p>Leveraging an innate understanding of luxury consumerism psychology, I've directed content and campaigns for well over 100 global luxury brands, while simultaneously nurturing rosters of writers, editors, marketers and creatives around the world.</p>
-                                    <p>Today I direct creative teams at INNOCEAN for Genesis, the luxury auto arm of Hyundai, while also leading conversations around luxury branding and consumerism, luxury trends, innovation and where they all intersect.</p>
-                                    <div class="buttons-group mt-2">
-                                        <a href="mailto:inquiry@courtney-driver.com">
-                                            <button class="btn btn-black" data-aos="fade" data-aos-delay="150">CONTACT</button>
+                        <div class="col-sm-12">
+                            <div class="Portfolio Portfolio--spacing HomeWorkPreview" id="Work" data-aos="fade" data-aos-delay="120">
+                                <div class="Portfolio__items">
+                                    <div class="Portfolio-item">
+                                        <img src="assets/images/creative/tln.png" alt="The Lantern Network">
+                                        <a href="creative.html" onclick="return gateWorkAccess(event, 'creative.html');" title="Keynotes">
+                                            <span class="Portfolio-item__name">Keynotes</span>
+                                            <span class="Portfolio-item__blurb">Luxury, culture, and the future of brand authority.</span>
                                         </a>
-                                        <a href="brands.html">
-                                            <button class="btn btn-black" data-aos="fade" data-aos-delay="150">BRANDS</button>
+                                    </div>
+                                    <div class="Portfolio-item">
+                                        <img src="assets/images/creative/gv80.png" alt="Genesis GV80">
+                                        <a href="creative.html" onclick="return gateWorkAccess(event, 'creative.html');" title="Strategic Direction">
+                                            <span class="Portfolio-item__name">Strategic Direction</span>
+                                            <span class="Portfolio-item__blurb">Narrative architecture and brand positioning.</span>
+                                        </a>
+                                    </div>
+                                    <div class="Portfolio-item">
+                                        <img src="assets/images/creative/mcw-genesisx-thumb.png" alt="Genesis">
+                                        <a href="creative.html" onclick="return gateWorkAccess(event, 'creative.html');" title="Advisory">
+                                            <span class="Portfolio-item__name">Advisory</span>
+                                            <span class="Portfolio-item__blurb">Decision clarity for senior brand leaders.</span>
+                                        </a>
+                                    </div>
+                                    <div class="Portfolio-item">
+                                        <img src="assets/images/creative/alfaromeo.png" alt="Alfa Romeo">
+                                        <a href="creative.html" onclick="return gateWorkAccess(event, 'creative.html');" title="Cultural Intelligence">
+                                            <span class="Portfolio-item__name">Cultural Intelligence</span>
+                                            <span class="Portfolio-item__blurb">Consumer psychology and emerging shifts.</span>
                                         </a>
                                     </div>
                                 </div>
@@ -242,7 +623,7 @@
         <section id="brand-cloud">
             <div class="container">
                 <div class="blog-post-image">
-                    <img src="assets/images/adlogos.png" alt="Brand logos">
+                    <img src="assets/images/logos-dark-clean.png" alt="Brand logos">
                 </div>
             </div>
         </section>
@@ -279,6 +660,53 @@
         window.Config.preloader.duration = 1500;
     </script>
     <script>
+        (function () {
+            var preloaderWord = document.getElementById('PreloaderWord');
+            if (!preloaderWord) {
+                return;
+            }
+
+            var words = (window.Config && window.Config.preloader && Array.isArray(window.Config.preloader.words) && window.Config.preloader.words.length)
+                ? window.Config.preloader.words.slice()
+                : ((window.Config && Array.isArray(window.Config.introTypingTexts) && window.Config.introTypingTexts.length)
+                    ? window.Config.introTypingTexts.slice()
+                    : ['taste', 'luxury', 'culture', 'technology', 'positioning']);
+
+            var index = 0;
+            var intervalMs = 300;
+            var switchDelayMs = 78;
+            var minCycleDuration = ((Math.max(words.length, 1) - 1) * intervalMs) + 420;
+
+            if (window.Config && window.Config.preloader) {
+                window.Config.preloader.duration = Math.max(window.Config.preloader.duration || 0, minCycleDuration);
+            }
+
+            var preloaderDuration = (window.Config && window.Config.preloader && window.Config.preloader.duration)
+                ? window.Config.preloader.duration
+                : 1500;
+
+            preloaderWord.textContent = words[0];
+
+            var timer = window.setInterval(function () {
+                if (index >= words.length - 1) {
+                    return;
+                }
+
+                index += 1;
+                preloaderWord.classList.add('is-switching');
+
+                window.setTimeout(function () {
+                    preloaderWord.textContent = words[index];
+                    preloaderWord.classList.remove('is-switching');
+                }, switchDelayMs);
+            }, intervalMs);
+
+            window.setTimeout(function () {
+                window.clearInterval(timer);
+            }, Math.max(preloaderDuration + 320, 1200));
+        })();
+    </script>
+    <script>
         function gateWorkAccess(event, targetUrl) {
             if (event) {
                 event.preventDefault();
@@ -299,6 +727,94 @@
         }
     </script>
     <script src="assets/js/app.js"></script>
+    <script>
+        (function () {
+            var links = Array.prototype.slice.call(document.querySelectorAll('.Navigation__bar .navbar-nav a.page-scroll[href^="#"]'));
+            if (!links.length) {
+                return;
+            }
+
+            var sections = links
+                .map(function (link) {
+                    var selector = link.getAttribute('href');
+                    var section = selector ? document.querySelector(selector) : null;
+                    return section ? { link: link, section: section } : null;
+                })
+                .filter(Boolean);
+
+            if (!sections.length) {
+                return;
+            }
+
+            var setCurrent = function (targetLink) {
+                links.forEach(function (link) {
+                    link.classList.toggle('nav-current', link === targetLink);
+                });
+            };
+
+            var findEntryByHash = function (hash) {
+                for (var i = 0; i < sections.length; i++) {
+                    if (sections[i].link.getAttribute('href') === hash) {
+                        return sections[i];
+                    }
+                }
+                return null;
+            };
+
+            var getTop = function (entry) {
+                return entry.section.getBoundingClientRect().top + window.pageYOffset;
+            };
+
+            var syncCurrentFromScroll = function () {
+                var navBar = document.querySelector('.Navigation__bar');
+                var offset = (navBar ? navBar.offsetHeight : 0) + 14;
+                var scrollY = window.pageYOffset + offset;
+                var intro = findEntryByHash('#Intro') || sections[0];
+                var about = findEntryByHash('#About');
+                var work = findEntryByHash('#Work');
+                var introTop = getTop(intro);
+                var aboutTop = about ? getTop(about) : Number.POSITIVE_INFINITY;
+                var workTop = work ? getTop(work) : Number.POSITIVE_INFINITY;
+
+                var introAboutBoundary = Number.POSITIVE_INFINITY;
+                var aboutWorkBoundary = Number.POSITIVE_INFINITY;
+
+                if (about) {
+                    introAboutBoundary = (introTop + aboutTop) / 2;
+                }
+
+                if (about && work) {
+                    aboutWorkBoundary = (aboutTop + workTop) / 2;
+                }
+
+                if (work && scrollY >= aboutWorkBoundary) {
+                    setCurrent(work.link);
+                    return;
+                }
+
+                if (about && scrollY >= introAboutBoundary) {
+                    setCurrent(about.link);
+                    return;
+                }
+
+                setCurrent(intro.link);
+            };
+
+            links.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setCurrent(link);
+                    window.setTimeout(function () {
+                        link.blur();
+                    }, 0);
+                });
+            });
+
+            window.addEventListener('scroll', syncCurrentFromScroll, { passive: true });
+            window.addEventListener('load', syncCurrentFromScroll);
+            window.addEventListener('resize', syncCurrentFromScroll);
+            syncCurrentFromScroll();
+        })();
+    </script>
     <script src="assets/js/particles.min.js"></script>
     <script>
         if (typeof particlesJS !== 'undefined') {
@@ -398,6 +914,42 @@
                 retina_detect: true
             });
         }
+    </script>
+    <script>
+        (function () {
+            if (!window.matchMedia('(max-width: 1024px)').matches) {
+                return;
+            }
+
+            var cards = document.querySelectorAll('#About .HomeWorkPreview .Portfolio-item');
+            if (!cards.length) {
+                return;
+            }
+
+            cards.forEach(function (card) {
+                var link = card.querySelector('a');
+                if (!link) {
+                    return;
+                }
+
+                var closeTimer = null;
+
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    card.classList.add('is-tapped');
+
+                    if (closeTimer) {
+                        window.clearTimeout(closeTimer);
+                    }
+
+                    closeTimer = window.setTimeout(function () {
+                        card.classList.remove('is-tapped');
+                        closeTimer = null;
+                    }, 2500);
+                });
+            });
+        })();
     </script>
 
 </body>

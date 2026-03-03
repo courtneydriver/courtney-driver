@@ -11735,8 +11735,45 @@ var tej = new Vue({
         this.handleScroll();
         window.addEventListener('scroll', this.handleScroll);
         window.onload = function () {
-            var duration = Config.preloader.defaultDuration;
+			var duration = Config.preloader.defaultDuration || Config.preloader.duration || 300;
+			var flashInterval = Config.preloader.flashInterval || 180;
+			var countdownFrom = parseInt(Config.preloader.countdownFrom, 10);
+			var hasCountdown = !isNaN(countdownFrom) && countdownFrom > 0;
+			var words = Config.preloader.words && Config.preloader.words.length ? Config.preloader.words : Config.introTypingTexts || [];
+			var currentWordIndex = 0;
+			var currentCount = countdownFrom;
+			var flashTimer = null;
+			var preloaderWord = null;
+
+			if (_this.sections.preloader && _this.sections.preloader.length) {
+				preloaderWord = _this.sections.preloader.find('#PreloaderWord, .Preloader__word').first();
+
+				if (!preloaderWord.length) {
+					preloaderWord = $('<div class="Preloader__word" aria-live="polite" aria-atomic="true"></div>');
+					_this.sections.preloader.append(preloaderWord);
+				}
+
+				var updatePreloaderWord = function updatePreloaderWord() {
+					if (hasCountdown && currentCount > 0) {
+						preloaderWord.text(currentCount);
+						currentCount -= 1;
+						return;
+					}
+
+					if (words.length) {
+						preloaderWord.text(words[currentWordIndex % words.length]);
+						currentWordIndex += 1;
+					}
+				};
+
+				updatePreloaderWord();
+				flashTimer = setInterval(updatePreloaderWord, flashInterval);
+			}
+
             setTimeout(function () {
+                if (flashTimer) {
+                    clearInterval(flashTimer);
+                }
                 _this.sections.preloader.addClass('--loaded');
                 setTimeout(function () {
                     _this.refreshScripts();

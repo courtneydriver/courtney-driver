@@ -262,6 +262,23 @@
         }
         /* Fix iOS Safari: background-attachment:fixed not supported on mobile */
         @media (max-width: 767px) {
+            #Preloader .Preloader__center.--v8 {
+                margin-top: 0 !important;
+                margin-left: 0 !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #Preloader .Preloader__words {
+                min-width: 0;
+                width: calc(100vw - 28px);
+                text-align: center;
+            }
+            #PreloaderWord {
+                font-size: clamp(28px, 10.4vw, 44px);
+                line-height: 1.2;
+                padding: 0.06em 0.14em 0.14em;
+            }
             .Intro {
                 height: 86svh !important;
                 min-height: 86svh !important;

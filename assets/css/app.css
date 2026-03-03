@@ -104,10 +104,10 @@
 
 .Preloader__word {
   font-family: "Calton Elegance Script", "Big Caslon", "Baskerville", serif;
-  font-size: 28px;
+  font-size: 22px;
   letter-spacing: 0.14em;
   text-transform: none;
-  color: #000000;
+  color: #0D0D0D;
   line-height: 1;
   animation: preloaderWordFlash 0.28s steps(1, end) infinite;
 }

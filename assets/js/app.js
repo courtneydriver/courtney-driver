@@ -11735,11 +11735,17 @@ var tej = new Vue({
         this.handleScroll();
         window.addEventListener('scroll', this.handleScroll);
         window.onload = function () {
-			var duration = Config.preloader.defaultDuration || Config.preloader.duration || 300;
-			var flashInterval = Config.preloader.flashInterval || 180;
-			var countdownFrom = parseInt(Config.preloader.countdownFrom, 10);
+			var config = window.Config || {};
+			var preloaderConfig = config.preloader || {};
+			var duration = preloaderConfig.defaultDuration || preloaderConfig.duration || 300;
+			var flashInterval = preloaderConfig.flashInterval || 180;
+			var countdownFrom = parseInt(preloaderConfig.countdownFrom, 10);
 			var hasCountdown = !isNaN(countdownFrom) && countdownFrom > 0;
-			var words = Config.preloader.words && Config.preloader.words.length ? Config.preloader.words : Config.introTypingTexts || [];
+			var words = preloaderConfig.words && preloaderConfig.words.length
+				? preloaderConfig.words
+				: (config.introTypingTexts && config.introTypingTexts.length
+					? config.introTypingTexts
+					: ['taste', 'luxury', 'culture', 'technology', 'positioning']);
 			var currentWordIndex = 0;
 			var currentCount = countdownFrom;
 			var flashTimer = null;

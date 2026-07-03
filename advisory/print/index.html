@@ -9,35 +9,121 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var theme = params.get("theme");
+      if (theme === "dark" || theme === "light") {
+        document.documentElement.setAttribute("data-theme", theme);
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="/advisory/assets/advisory.css">
   <style>
     @page {
       size: Letter;
-      margin: 0.5in;
+      margin: 0;
+    }
+
+    html,
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background: var(--ad-bg-layer) !important;
+      background-color: var(--ad-bg) !important;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .advisory-page {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .pdf-page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: var(--ad-bg-layer);
+      background-color: var(--ad-bg);
     }
 
     .ad-main {
-      width: min(8.1in, 100%) !important;
+      width: min(8.5in, 100%) !important;
       max-width: none !important;
-      padding: 5rem 0.625rem 12rem !important;
+      position: relative;
+      z-index: 1;
+      padding: 0.8in 0.56in 0.9in !important;
     }
 
-    .page-break,
-    .category-block,
-    .philosophy,
-    article,
-    section {
-      break-inside: avoid;
-      page-break-inside: avoid;
+    .mb-12 {
+      margin-bottom: 1.3rem !important;
     }
 
-    .page-break {
-      page-break-before: always;
+    .mb-10 {
+      margin-bottom: 1rem !important;
+    }
+
+    .mb-hero {
+      margin-bottom: 2rem !important;
+    }
+
+    .label {
+      margin-bottom: 1.15rem !important;
+    }
+
+    p {
+      margin-bottom: 0.95rem !important;
+      line-height: 1.62 !important;
+    }
+
+    .tagline {
+      margin-bottom: 1.3rem !important;
+    }
+
+    .divider {
+      margin: 1.35rem 0 !important;
+    }
+
+    .divider.short {
+      margin: 1.2rem 0 !important;
+    }
+
+    .stack {
+      gap: 1.2rem !important;
+    }
+
+    .focus-grid {
+      row-gap: 0.55rem !important;
+      column-gap: 2rem !important;
+    }
+
+    .category-block {
+      padding-left: 0.95rem !important;
+    }
+
+    .recognition {
+      gap: 0.75rem !important;
+    }
+
+    .philosophy {
+      padding: 1rem 0 0.2rem !important;
+    }
+
+    .philosophy-line {
+      margin-bottom: 0.8rem !important;
+      line-height: 1.48 !important;
+    }
+
+    .ending {
+      margin-top: 1.2rem !important;
     }
   </style>
 </head>
 <body>
   <div class="advisory-page">
+    <div class="pdf-page-bg" aria-hidden="true"></div>
     <main class="ad-main">
       <section class="center mb-hero">
         <p class="label mb-12">Perception Advisor</p>
@@ -74,7 +160,7 @@
 
       <div class="divider"></div>
 
-      <section class="page-break">
+      <section>
         <p class="label">Representative Collaborations</p>
         <p class="mb-12">Over the past two decades, I've collaborated with global brands, agencies, publishers, and destinations across the luxury ecosystem.</p>
 
@@ -121,7 +207,7 @@
 
       <div class="divider"></div>
 
-      <section class="page-break">
+      <section>
         <p class="label">How We Can Work Together</p>
         <div class="stack">
           <article>

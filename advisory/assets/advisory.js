@@ -2,8 +2,18 @@
   var storageKey = "advisory-theme";
   var root = document.documentElement;
   var toggle = document.getElementById("themeToggle");
+  var pdfLink = document.getElementById("downloadPdfLink");
   if (!toggle) {
     return;
+  }
+
+  function updatePdfLink(theme) {
+    if (!pdfLink) {
+      return;
+    }
+    var pdfFile = theme === "light" ? "courtney-driver-advisory-light.pdf" : "courtney-driver-advisory-dark.pdf";
+    pdfLink.setAttribute("href", pdfFile);
+    pdfLink.setAttribute("download", pdfFile);
   }
 
   function setTheme(theme) {
@@ -15,6 +25,8 @@
     if (label) {
       label.textContent = isLight ? "Light" : "Dark";
     }
+
+    updatePdfLink(isLight ? "light" : "dark");
   }
 
   var current = root.getAttribute("data-theme");

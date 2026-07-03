@@ -20,6 +20,7 @@
   --ad-toggle-dot: #c8b99a;
   --ad-toggle-label: #bfb4a8;
   --ad-shell: min(48.3rem, calc(100% - 2.5rem));
+  --ad-headline-tracking: 3.15px;
 }
 
 html[data-theme="light"] {
@@ -167,12 +168,20 @@ body {
   justify-self: start;
 }
 
+.nav-script-link {
+  display: inline;
+}
+
 .nav-kicker {
   color: var(--ad-copy-label);
   font-size: 0.5625rem;
-  letter-spacing: 0.35em;
+  letter-spacing: var(--ad-headline-tracking);
   text-transform: uppercase;
   justify-self: end;
+}
+
+.nav-kicker > span {
+  display: inline;
 }
 
 .theme-toggle {
@@ -259,7 +268,8 @@ html[data-theme="light"] .theme-toggle-dot {
   margin: 0 0 3rem;
   color: var(--ad-copy-label);
   font-size: 10.35px;
-  letter-spacing: 0.34em;
+  letter-spacing: var(--ad-headline-tracking);
+  font-weight: 300;
   text-transform: uppercase;
   line-height: 1.35;
 }
@@ -290,6 +300,14 @@ html[data-theme="light"] p {
   color: var(--ad-copy-main);
   font-weight: 400;
   letter-spacing: 0.008em;
+}
+
+html[data-theme="light"] .label,
+html[data-theme="light"] .kicker,
+html[data-theme="light"] .ending {
+  color: var(--ad-copy-label);
+  font-weight: 300;
+  letter-spacing: var(--ad-headline-tracking);
 }
 
 .tagline {
@@ -362,7 +380,7 @@ html[data-theme="light"] .italic {
 h2 {
   margin: 0 0 1rem;
   font-size: 0.625rem;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--ad-headline-tracking);
   text-transform: uppercase;
   color: var(--ad-copy-mid);
   font-weight: 500;
@@ -429,7 +447,8 @@ html[data-theme="light"] .script-sub-link:focus-visible {
   margin: 0 0 2.5rem;
   color: var(--ad-copy-label);
   font-size: 0.56rem;
-  letter-spacing: 0.35em;
+  letter-spacing: var(--ad-headline-tracking);
+  font-weight: 300;
   text-transform: uppercase;
 }
 
@@ -542,17 +561,23 @@ html[data-theme="light"] .philosophy-line.alt {
 
 @media (max-width: 900px) {
   .ad-nav {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    column-gap: 0.9rem;
     row-gap: 0.7rem;
     padding: 1.5rem 1.25rem;
   }
 
   .theme-toggle {
-    grid-column: 1 / -1;
+    grid-column: auto;
+  }
+
+  .script {
+    justify-self: end;
   }
 
   .nav-kicker {
-    justify-self: end;
+    justify-self: start;
   }
 
   .ad-main {
@@ -572,20 +597,48 @@ html[data-theme="light"] .philosophy-line.alt {
   }
 
   .ad-nav {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    grid-template-columns: 1fr auto 1fr;
+    column-gap: 0.35rem;
+    row-gap: 0;
     padding-top: 1.25rem;
-    justify-items: center;
+    align-items: center;
   }
 
-  .script,
-  .nav-kicker,
+  .script {
+    grid-column: 1;
+    justify-self: start;
+    font-size: 0.5rem;
+    line-height: 1.06;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: var(--ad-headline-tracking);
+    font-weight: 400;
+  }
+
+  .nav-script-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.05rem;
+  }
+
   .theme-toggle {
+    grid-column: 2;
+    grid-row: 1;
     justify-self: center;
   }
 
   .nav-kicker {
-    letter-spacing: 0.27em;
+    grid-column: 3;
+    justify-self: end;
+    font-size: 0.5rem;
+    line-height: 1.06;
+    letter-spacing: var(--ad-headline-tracking);
+    text-align: right;
+  }
+
+  .nav-kicker > span {
+    display: block;
   }
 
   .mb-hero {
@@ -598,13 +651,6 @@ html[data-theme="light"] .philosophy-line.alt {
 }
 
 @media print {
-  html,
-  html[data-theme="light"],
-  html[data-theme="dark"] {
-    --ad-bg: #fff !important;
-    --ad-bg-layer: #fff !important;
-  }
-
   .ambient-wrap,
   .ad-nav,
   .ad-footer,
@@ -612,39 +658,10 @@ html[data-theme="light"] .philosophy-line.alt {
     display: none !important;
   }
 
+  html,
   body {
-    background: #fff !important;
-    color: #111 !important;
-  }
-
-  p,
-  .tagline,
-  .philosophy-line,
-  .brands,
-  .italic {
-    color: #202020 !important;
-  }
-
-  .label,
-  h2,
-  .kicker,
-  .ending {
-    color: #555 !important;
-  }
-
-  .script-title,
-  .script-sub,
-  .script,
-  .accent {
-    color: #111 !important;
-  }
-
-  .category-block {
-    border-left-color: #d0d0d0;
-  }
-
-  .divider {
-    background: #dcdcdc;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 
   .fade {

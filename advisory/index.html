@@ -17,16 +17,14 @@
   <link rel="icon" href="../assets/images/cd-white.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
   <script>
     (function () {
-      var theme = "light";
+      var theme = "dark";
       try {
         var saved = localStorage.getItem("advisory-theme");
         if (saved === "dark" || saved === "light") {
           theme = saved;
-        } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-          theme = "light";
         }
       } catch (err) {
-        theme = "light";
+        theme = "dark";
       }
       document.documentElement.setAttribute("data-theme", theme);
     })();
@@ -48,12 +46,20 @@
 
     <header class="ad-header fade delay-0">
       <nav class="ad-nav">
-        <span class="script"><a class="brand-link" href="https://courtney-driver.com">courtney driver</a></span>
+        <span class="script">
+          <a class="brand-link nav-script-link" href="https://courtney-driver.com">
+            <span>courtney</span>
+            <span>driver</span>
+          </a>
+        </span>
         <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
           <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-dot"></span></span>
           <span class="theme-toggle-label">Dark</span>
         </button>
-        <span class="nav-kicker">Executive Advisory</span>
+        <span class="nav-kicker">
+          <span>Executive</span>
+          <span>Advisory</span>
+        </span>
       </nav>
     </header>
 
@@ -183,7 +189,7 @@
         <p class="ending">That is the work.</p>
       </section>
 
-      <p class="print-link-wrap"><a class="print-link" href="print/">Open PDF-Friendly Version</a></p>
+      <p class="print-link-wrap"><a id="downloadPdfLink" class="print-link" href="courtney-driver-advisory-dark.pdf" download="courtney-driver-advisory-dark.pdf">Download PDF</a></p>
     </main>
 
     <footer class="ad-footer">

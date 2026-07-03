@@ -503,6 +503,24 @@ html[data-theme="light"] .philosophy-line.alt {
   animation: fadeUp 1.1s ease-out forwards;
 }
 
+@media screen {
+  #top .ad-header {
+    display: block !important;
+  }
+
+  #top .ad-nav {
+    display: grid !important;
+  }
+
+  #top .theme-toggle {
+    display: inline-flex !important;
+  }
+
+  #top .ad-footer {
+    display: block !important;
+  }
+}
+
 .delay-0 {
   animation-delay: 0s;
 }

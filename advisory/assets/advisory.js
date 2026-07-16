@@ -1,19 +1,21 @@
 (function () {
-  var storageKey = "advisory-theme";
   var root = document.documentElement;
-  var toggle = document.getElementById("themeToggle");
+  var isPdfRender = root.getAttribute("data-render") === "pdf";
+
   var pdfLink = document.getElementById("downloadPdfLink");
-  if (!toggle) {
+  if (pdfLink) {
+    pdfLink.setAttribute("href", "courtney-driver-advisory.pdf");
+    pdfLink.setAttribute("download", "courtney-driver-advisory.pdf");
+  }
+
+  if (isPdfRender) {
     return;
   }
 
-  function updatePdfLink(theme) {
-    if (!pdfLink) {
-      return;
-    }
-    var pdfFile = theme === "light" ? "courtney-driver-advisory-light.pdf" : "courtney-driver-advisory-dark.pdf";
-    pdfLink.setAttribute("href", pdfFile);
-    pdfLink.setAttribute("download", pdfFile);
+  var storageKey = "advisory-theme";
+  var toggle = document.getElementById("themeToggle");
+  if (!toggle) {
+    return;
   }
 
   function setTheme(theme) {
@@ -25,8 +27,6 @@
     if (label) {
       label.textContent = isLight ? "Light" : "Dark";
     }
-
-    updatePdfLink(isLight ? "light" : "dark");
   }
 
   var current = root.getAttribute("data-theme");

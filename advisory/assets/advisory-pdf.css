@@ -1,0 +1,230 @@
+@page {
+  size: Letter;
+  margin: 0;
+}
+
+html[data-render="pdf"] {
+  --ad-bg: #f4eee4;
+  --ad-bg-layer: #f4eee4;
+  --ad-copy: #2c343d;
+  --ad-copy-main: #3f4852;
+  --ad-copy-soft: #67717b;
+  --ad-copy-mid: #4f5963;
+  --ad-copy-label: #7d817f;
+  --ad-border: rgba(129, 126, 120, 0.35);
+  --ad-headline-tracking: 3.15px;
+}
+
+html[data-render="pdf"],
+html[data-render="pdf"] body {
+  margin: 0;
+  padding: 0;
+  background: var(--ad-bg-layer) !important;
+  background-color: var(--ad-bg) !important;
+  color: var(--ad-copy);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+html[data-render="pdf"] .Preloader,
+html[data-render="pdf"] .ambient-wrap,
+html[data-render="pdf"] .ad-header,
+html[data-render="pdf"] .ad-footer,
+html[data-render="pdf"] .print-link-wrap {
+  display: none !important;
+}
+
+html[data-render="pdf"] .advisory-page {
+  isolation: auto;
+  overflow: visible;
+}
+
+html[data-render="pdf"] .ad-main {
+  width: min(8.5in, 100%);
+  max-width: none;
+  margin: 0 auto;
+  padding: 0.72in 0.62in 0.84in;
+}
+
+html[data-render="pdf"] .fade {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+html[data-render="pdf"] .mb-hero {
+  margin-bottom: 1.8rem;
+}
+
+html[data-render="pdf"] .mb-12 {
+  margin-bottom: 1.2rem;
+}
+
+html[data-render="pdf"] .mb-10 {
+  margin-bottom: 0.95rem;
+}
+
+html[data-render="pdf"] .label {
+  margin: 0 0 1.05rem;
+  color: var(--ad-copy-label);
+  font-size: 10px;
+  letter-spacing: var(--ad-headline-tracking);
+  font-weight: 300;
+  line-height: 1.35;
+}
+
+html[data-render="pdf"] .script-title {
+  color: #2a3238;
+  font-size: clamp(4.4rem, 9vw, 6.3rem);
+  line-height: 1;
+}
+
+html[data-render="pdf"] p {
+  margin: 0 0 0.88rem;
+  color: var(--ad-copy-main);
+  font-size: 0.84rem;
+  font-weight: 400;
+  letter-spacing: 0.008em;
+  line-height: 1.58;
+}
+
+html[data-render="pdf"] .tagline {
+  margin-bottom: 1.2rem;
+  color: #414b55;
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+html[data-render="pdf"] .divider {
+  margin: 1.22rem 0;
+  background: linear-gradient(to right, transparent, var(--ad-border) 22%, var(--ad-border) 78%, transparent);
+}
+
+html[data-render="pdf"] .divider.short {
+  margin: 1.05rem 0;
+}
+
+html[data-render="pdf"] .focus-grid {
+  column-gap: 1.75rem;
+  row-gap: 0.5rem;
+}
+
+html[data-render="pdf"] .focus-grid p,
+html[data-render="pdf"] .recognition p {
+  color: #4d5862;
+}
+
+html[data-render="pdf"] .dash {
+  color: var(--ad-copy-label);
+}
+
+html[data-render="pdf"] .italic {
+  color: #63707a;
+}
+
+html[data-render="pdf"] .stack {
+  gap: 1.06rem;
+}
+
+html[data-render="pdf"] .category-block {
+  border-left-color: rgba(129, 126, 120, 0.32);
+  padding-left: 0.95rem;
+}
+
+html[data-render="pdf"] h2 {
+  margin: 0 0 0.6rem;
+  color: var(--ad-copy-mid);
+  font-size: 0.62rem;
+  letter-spacing: var(--ad-headline-tracking);
+  line-height: 1.35;
+}
+
+html[data-render="pdf"] .brands {
+  color: #66717b;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  line-height: 1.63;
+}
+
+html[data-render="pdf"] .script-sub {
+  margin: 0 0 1.08rem;
+  color: #59646e;
+  font-size: 2.35rem;
+  line-height: 1.08;
+}
+
+html[data-render="pdf"] .brand-link,
+html[data-render="pdf"] .script-sub-link {
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+html[data-render="pdf"] .kicker,
+html[data-render="pdf"] .ending {
+  margin: 0 0 1rem;
+  color: var(--ad-copy-label);
+  font-size: 0.55rem;
+  font-weight: 300;
+  letter-spacing: var(--ad-headline-tracking);
+}
+
+html[data-render="pdf"] .accent {
+  color: #56616a;
+}
+
+html[data-render="pdf"] .recognition {
+  gap: 0.68rem;
+}
+
+html[data-render="pdf"] .philosophy {
+  padding: 0.88rem 0 0.18rem;
+}
+
+html[data-render="pdf"] .philosophy-line {
+  margin-bottom: 0.72rem;
+  color: #47515b;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+html[data-render="pdf"] .philosophy-line.alt {
+  color: #3e4750;
+}
+
+html[data-render="pdf"] .ending {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  letter-spacing: 0.36em;
+}
+
+html[data-render="pdf"] .tagline-line {
+  display: inline;
+}
+
+html[data-render="pdf"] .script,
+html[data-render="pdf"] .theme-toggle,
+html[data-render="pdf"] .nav-kicker {
+  display: none !important;
+}
+
+html[data-render="pdf"] section,
+html[data-render="pdf"] article,
+html[data-render="pdf"] .category-block,
+html[data-render="pdf"] .recognition,
+html[data-render="pdf"] .philosophy {
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+}
+
+html[data-render="pdf"] .label,
+html[data-render="pdf"] h2 {
+  break-after: avoid-page;
+  page-break-after: avoid;
+}
+
+html[data-render="pdf"] p {
+  orphans: 3;
+  widows: 3;
+}

@@ -17,7 +17,16 @@
   <link rel="icon" href="../assets/images/cd-white.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
   <script>
     (function () {
-      var theme = "dark";
+      var params = new URLSearchParams(window.location.search);
+      var isPdfRender = params.get("render") === "pdf";
+      var theme = isPdfRender ? "light" : "dark";
+      document.documentElement.setAttribute("data-render", isPdfRender ? "pdf" : "web");
+
+      if (isPdfRender) {
+        document.documentElement.setAttribute("data-theme", "light");
+        return;
+      }
+
       try {
         var saved = localStorage.getItem("advisory-theme");
         if (saved === "dark" || saved === "light") {
@@ -33,6 +42,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/advisory/assets/advisory.css">
+  <link rel="stylesheet" href="/advisory/assets/advisory-pdf.css">
   <script src="/advisory/assets/advisory.js" defer></script>
 </head>
 <body>
@@ -47,7 +57,7 @@
     <header class="ad-header fade delay-0">
       <nav class="ad-nav">
         <span class="script">
-          <a class="brand-link nav-script-link" href="https://courtney-driver.com">
+          <a class="brand-link nav-script-link" href="/">
             <span>courtney</span>
             <span>driver</span>
           </a>
@@ -66,7 +76,7 @@
     <main class="ad-main">
       <section class="center mb-hero fade delay-0">
         <p class="label mb-12">Perception Advisor</p>
-        <h1 class="script-title"><a class="brand-link" href="https://courtney-driver.com">courtney driver</a></h1>
+        <h1 class="script-title"><a class="brand-link" href="/">courtney driver</a></h1>
       </section>
 
       <section class="fade delay-1">
@@ -189,11 +199,11 @@
         <p class="ending">That is the work.</p>
       </section>
 
-      <p class="print-link-wrap"><a id="downloadPdfLink" class="print-link" href="courtney-driver-advisory-dark.pdf" download="courtney-driver-advisory-dark.pdf">Download PDF</a></p>
+      <p class="print-link-wrap"><a id="downloadPdfLink" class="print-link" href="courtney-driver-advisory.pdf" download="courtney-driver-advisory.pdf">Download PDF</a></p>
     </main>
 
     <footer class="ad-footer">
-      <span class="script"><a class="brand-link" href="https://courtney-driver.com">courtney driver</a></span>
+      <span class="script"><a class="brand-link" href="/">courtney driver</a></span>
     </footer>
   </div>
 </body>

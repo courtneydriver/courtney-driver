@@ -11734,7 +11734,7 @@ var tej = new Vue({
 
         this.handleScroll();
         window.addEventListener('scroll', this.handleScroll);
-        window.onload = function () {
+        var runPreloaderSequence = function runPreloaderSequence() {
 			var config = window.Config || {};
 			var preloaderConfig = config.preloader || {};
 			var duration = preloaderConfig.defaultDuration || preloaderConfig.duration || 300;
@@ -11786,7 +11786,13 @@ var tej = new Vue({
                     _this.sections.preloader.remove();
                 }, 510);
             }, duration);
-        };
+		};
+
+		if (document.readyState === 'complete') {
+			runPreloaderSequence();
+		} else {
+			window.addEventListener('load', runPreloaderSequence, { once: true });
+		}
     }
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
@@ -13367,6 +13373,17 @@ exports.default = {
 /* WEBPACK VAR INJECTION */(function($) {
 
 $(function () {
+	var $fallbackPreloader = $('#Preloader');
+	if ($fallbackPreloader.length) {
+		$fallbackPreloader.css('pointer-events', 'none');
+		setTimeout(function () {
+			$fallbackPreloader.addClass('--loaded');
+			setTimeout(function () {
+				$fallbackPreloader.remove();
+			}, 520);
+		}, 350);
+	}
+
     setNavbar();
     $(window).on('scroll', function () {
         return setNavbar();
@@ -13390,10 +13407,43 @@ $(function () {
         }
     }
 
-    $('.Navigation__mobile-menu').on("click", function () {
-        $(this).toggleClass('--active');
-        $('.Navigation').toggleClass('--mobile-active');
-    });
+	var MOBILE_NAV_ATTR = 'data-mobile-nav';
+	var MOBILE_NAV_OPEN = 'open';
+	var MOBILE_NAV_CLOSED = 'closed';
+	var mobileBreakpoint = window.matchMedia('(max-width: 767px)');
+	var wasMobileViewport = mobileBreakpoint.matches;
+
+	function syncMobileMenuState(isOpen) {
+		var $navigation = $('.Navigation'),
+			$menuButton = $('.Navigation__mobile-menu');
+
+		$navigation.attr(MOBILE_NAV_ATTR, isOpen ? MOBILE_NAV_OPEN : MOBILE_NAV_CLOSED);
+		$menuButton.attr('aria-expanded', isOpen ? 'true' : 'false');
+	}
+
+	$('.Navigation').attr(MOBILE_NAV_ATTR, MOBILE_NAV_CLOSED);
+	$('.Navigation__mobile-menu').attr({
+		'role': 'button',
+		'tabindex': '0',
+		'aria-label': 'Toggle navigation menu',
+		'aria-expanded': 'false'
+	});
+
+	$('.Navigation__mobile-menu').on("click", function () {
+		var $navigation = $(this).closest('.Navigation');
+		syncMobileMenuState($navigation.attr(MOBILE_NAV_ATTR) !== MOBILE_NAV_OPEN);
+	});
+
+	$('.Navigation__mobile-menu').on('keydown', function (event) {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			$(this).trigger('click');
+		}
+	});
+
+	$('.Navigation__navbar-nav a').on('click', function () {
+		syncMobileMenuState(false);
+	});
 
     $(document).on("scroll", menuChangeOnScroll);
 
@@ -13406,8 +13456,7 @@ $(function () {
             $(this).removeClass('active');
         });
 
-        $('.Navigation').removeClass('--mobile-active');
-        $('.Navigation__mobile-menu').removeClass('--active');
+		syncMobileMenuState(false);
 
         $(this).parent().addClass('active');
 
@@ -13429,7 +13478,37 @@ $(function () {
 			}
             $(document).on("scroll", menuChangeOnScroll);
         });
-    });
+	});
+
+	$(window).on('resize', function () {
+		var isMobileViewport = mobileBreakpoint.matches;
+		if (isMobileViewport !== wasMobileViewport) {
+			syncMobileMenuState(false);
+			wasMobileViewport = isMobileViewport;
+		}
+	});
+
+	$(window).on('orientationchange', function () {
+		syncMobileMenuState(false);
+	});
+
+	if (mobileBreakpoint.addEventListener) {
+		mobileBreakpoint.addEventListener('change', function () {
+			syncMobileMenuState(false);
+			wasMobileViewport = mobileBreakpoint.matches;
+		});
+	} else if (mobileBreakpoint.addListener) {
+		mobileBreakpoint.addListener(function () {
+			syncMobileMenuState(false);
+			wasMobileViewport = mobileBreakpoint.matches;
+		});
+	}
+
+	$(document).on('keydown', function (event) {
+		if (event.key === 'Escape') {
+			syncMobileMenuState(false);
+		}
+	});
 });
 
 function scrollFromTop() {

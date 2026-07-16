@@ -18,7 +18,7 @@
     <!-- CSS Libraries -->
     <link href="assets/css/libs.css" rel="stylesheet">
     <!-- Theme styles -->
-    <link href="assets/css/app.css?v=20260301-4" rel="stylesheet">
+    <link href="assets/css/app.css?v=20260301-11" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -68,6 +68,38 @@
         #Blog-post {
             margin-top: -100px;
         }
+        footer .footer-meta {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+            row-gap: 0.45rem;
+            column-gap: clamp(0.9rem, 2vw, 2.3rem);
+            align-items: center;
+            padding: 0.2rem 0;
+        }
+        footer .footer-contact--left {
+            justify-self: start;
+            text-align: left;
+        }
+        footer .footer-contact--right {
+            justify-self: end;
+            text-align: right;
+        }
+        footer .footer-brand-mark {
+            display: inline-block;
+            max-width: none !important;
+            max-height: 48px !important;
+            width: auto !important;
+            height: auto;
+        }
+        footer .footer-brand-wrap {
+            justify-self: center;
+            text-align: center;
+        }
+        footer .footer-contact,
+        footer .copyrights {
+            margin: 0;
+            line-height: 1.45;
+        }
         @media (max-width: 767px) {
             .Topbar.Topbar--page {
                 margin-top: 68px;
@@ -76,6 +108,26 @@
             }
             .Topbar.Topbar--page p {
                 font-size: 12px;
+            }
+            footer .footer-meta {
+                grid-template-columns: 1fr;
+                row-gap: 0.55rem;
+                text-align: center;
+            }
+            footer .footer-brand-wrap,
+            footer .footer-contact,
+            footer .footer-contact--left,
+            footer .footer-contact--right {
+                text-align: center;
+            }
+            footer .footer-brand-wrap {
+                text-align: center;
+                justify-self: center;
+            }
+            footer .footer-brand-mark {
+                max-width: none !important;
+                max-height: 36px !important;
+                width: auto !important;
             }
         }
     </style>
@@ -96,7 +148,7 @@
             <nav class="Navigation__bar navbar navbar-fixed-top">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html#Intro">
-                        <img src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver" class="img-responsive" style="max-height:48px; width:auto; padding-bottom:2px;">
+                        <img src="assets/images/signature-logo-white.svg" alt="Courtney Driver" class="img-responsive" style="max-height:48px; width:auto;">
                     </a>
                     <div class="Navigation__mobile-menu">
                         <span></span>
@@ -147,24 +199,10 @@
          <!-- ========================================= PAGE FOOTER ========================================= -->
         <footer>
             <div class="container">
-                <div class="flex-row">
-                    <div class="col-sm-4">
-                        <div class="footer-contacts">
-                            <div class="footer-contact"><i class="fa fa-phone-square"></i>949.423.3755</div>
-                            <div class="footer-contact"><i class="fa fa-envelope-square"></i>inquiry@courtney-driver.com</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver" style="max-width:200px; width:100%; height:auto;">
-                        <div class="copyrights">ALL RIGHTS RESERVED</div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="footer-socials text-left">
-                            <a href="https://www.linkedin.com/in/courtneydriver/" style="margin-right:10px;"><i class="fa-brands fa-linkedin fa-2x" aria-hidden="true"></i></a>
-                            <a href="https://www.instagram.com/courtneydriver" style="margin-right:10px;"><i class="fa-brands fa-instagram fa-2x" aria-hidden="true"></i></a>
-                            <a href="https://www.tiktok.com/@courtney..driver"><i class="fa-brands fa-tiktok fa-2x" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
+                <div class="footer-meta">
+                    <div class="footer-contact footer-contact--left"><i class="fa fa-phone-square"></i><a href="tel:+19494233755">949.423.3755</a></div>
+                    <div class="footer-brand-wrap"><img class="footer-brand-mark" src="assets/images/signature-logo-white.svg" alt="Courtney Driver"></div>
+                    <div class="footer-contact footer-contact--right"><i class="fa fa-envelope-square"></i><a href="mailto:inquiry@courtney-driver.com">inquiry@courtney-driver.com</a></div>
                 </div>
             </div>
         </footer>
@@ -195,10 +233,8 @@
         return false;
     }
     </script>
-    <!-- JavaScript Libraries (jQuery, Vue.js etc.) -->
-    <script src="assets/js/libs.js"></script>
     <!-- Application scripts -->
-    <script src="assets/js/app.js?v=20260301-3"></script>
+    <script src="assets/js/app.js?v=20260301-4"></script>
 </body>
 
 </html>

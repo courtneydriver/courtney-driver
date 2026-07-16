@@ -1408,9 +1408,74 @@ blockquote {
 }
 
 @media all and (max-width: 767px) {
+  .Navigation--scrolled .Navigation__bar,
+  .Navigation:not(.Navigation--scrolled) .Navigation__bar {
+    padding-top: 6px;
+    padding-bottom: 5px;
+    min-height: 0;
+  }
+
+  .Navigation__bar,
+  .Navigation__bar.navbar {
+    padding: 6px 10px 5px;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1301;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    overflow: visible;
+  }
+
+  .Navigation__bar .navbar-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    float: none;
+    min-height: 30px;
+    width: 100%;
+    border: 0 !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+  }
+
+  .Navigation__bar .navbar-header:before,
+  .Navigation__bar .navbar-header:after,
+  .Navigation__mobile-menu:before,
+  .Navigation__mobile-menu:after {
+    content: none !important;
+    display: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .Navigation__bar .navbar-brand {
+    float: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0;
+    padding-top: 1px;
+    line-height: 1;
+  }
+
+  .Navigation__bar .navbar-brand img {
+    max-height: 30px !important;
+    width: auto;
+    padding-bottom: 0 !important;
+  }
+
   .Navigation__mobile-menu {
-    display: inline;
-    float: right;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1421,30 +1486,42 @@ blockquote {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    height: 20px;
-    margin: 15px 0 0 0;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 14px;
+    width: 22px;
+    padding: 8px 4px;
+    margin: 0;
+    float: none;
+    position: relative;
+    z-index: 1302;
+    border: 0 !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
   }
 
   .Navigation__mobile-menu span {
     transition: all 0.3s ease-in-out;
     display: block;
-    width: 35px;
+    width: 22px;
     height: 2px;
+    min-height: 2px;
     background-color: #ffffff;
   }
 
-  .Navigation__mobile-menu.\--active span:nth-of-type(1) {
-    -webkit-transform: rotate(-45deg) translateY(12px);
-    transform: rotate(-45deg) translateY(12px);
+  .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(1) {
+    -webkit-transform: rotate(-45deg) translateY(7px);
+    transform: rotate(-45deg) translateY(7px);
   }
 
-  .Navigation__mobile-menu.\--active span:nth-of-type(2) {
+  .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(2) {
     opacity: 0;
   }
 
-  .Navigation__mobile-menu.\--active span:nth-of-type(3) {
-    -webkit-transform: rotate(45deg) translateY(-12px);
-    transform: rotate(45deg) translateY(-12px);
+  .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(3) {
+    -webkit-transform: rotate(45deg) translateY(-7px);
+    transform: rotate(45deg) translateY(-7px);
   }
 
   .Navigation__mobile-menu__bar {
@@ -1453,14 +1530,20 @@ blockquote {
 
   .Navigation__navbar-nav {
     position: fixed;
-    z-index: -1;
+    z-index: 1200;
+    top: 0;
     bottom: 0;
-    height: 0;
-    overflow: hidden;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow-y: auto;
     left: 0;
     width: 100%;
     background: #000000;
-    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-104%);
+    transition: none;
   }
 
   .Navigation__navbar-nav .navbar-nav {
@@ -1484,9 +1567,12 @@ blockquote {
     font-size: 12px;
   }
 
-  .Navigation.\--mobile-active .Navigation__navbar-nav {
-    height: 100%;
-    padding-top: 70px;
+  .Navigation[data-mobile-nav="open"] .Navigation__navbar-nav {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    padding-top: 70px !important;
   }
 }
 

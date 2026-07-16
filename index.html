@@ -15,7 +15,7 @@
     <!-- CSS Libraries -->
     <link href="assets/css/libs.css" rel="stylesheet">
     <!-- Theme styles -->
-    <link href="assets/css/app.css?v=20260301-4" rel="stylesheet">
+    <link href="assets/css/app.css?v=20260301-11" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Nav transparency fix -->
@@ -37,6 +37,9 @@
             --tone-plum: 32, 16, 32;
             --tone-wine: 48, 16, 16;
             --tone-indigo: 16, 16, 32;
+            --home-atmo-cool: rgba(46, 78, 98, 0.1);
+            --home-atmo-warm: rgba(110, 86, 60, 0.08);
+            --home-atmo-neutral: rgba(195, 192, 186, 0.05);
         }
         html,
         body,
@@ -61,6 +64,38 @@
         footer {
             background: linear-gradient(180deg, #0D0D0D 0%, #0D0D0D 60%, rgba(var(--tone-indigo), 0.04) 78%, rgba(var(--tone-plum), 0.06) 90%, rgba(var(--tone-wine), 0.08) 100%), #0D0D0D !important;
             background-color: #0D0D0D !important;
+        }
+        footer .footer-meta {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+            row-gap: 0.45rem;
+            column-gap: clamp(0.9rem, 2vw, 2.3rem);
+            align-items: center;
+            padding: 0.2rem 0;
+        }
+        footer .footer-contact--left {
+            justify-self: start;
+            text-align: left;
+        }
+        footer .footer-contact--right {
+            justify-self: end;
+            text-align: right;
+        }
+        footer .footer-brand-mark {
+            display: inline-block;
+            max-width: none !important;
+            max-height: 48px !important;
+            width: auto !important;
+            height: auto;
+        }
+        footer .footer-brand-wrap {
+            justify-self: center;
+            text-align: center;
+        }
+        footer .footer-contact,
+        footer .copyrights {
+            margin: 0;
+            line-height: 1.45;
         }
         #Preloader .Preloader__center.--v8 {
             width: auto !important;
@@ -232,19 +267,19 @@
             border: none !important;
             box-shadow: none !important;
         }
-        .Navigation--scrolled .Navigation__bar {
-            background: var(--ink-base) !important;
-            background-color: var(--ink-base) !important;
-        }
+        .Navigation--scrolled .Navigation__bar,
         .Navigation.Navigation--scrolled nav.Navigation__bar.navbar.navbar-fixed-top {
-            background: var(--ink-base) !important;
-            background-color: var(--ink-base) !important;
-            background-image: none !important;
+            background: linear-gradient(to bottom, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.8) 48%, rgba(13, 13, 13, 0.36) 78%, rgba(13, 13, 13, 0.08) 100%) !important;
+            background-color: transparent !important;
+            background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.8) 48%, rgba(13, 13, 13, 0.36) 78%, rgba(13, 13, 13, 0.08) 100%) !important;
+            border-top-color: rgba(168, 167, 167, 0.2) !important;
         }
         .Navigation:not(.Navigation--scrolled) .Navigation__bar,
         .Navigation:not(.Navigation--scrolled) .Navigation__bar.navbar {
-            background: var(--ink-base) !important;
-            background-color: var(--ink-base) !important;
+            background: linear-gradient(to bottom, rgba(13, 13, 13, 0.9) 0%, rgba(13, 13, 13, 0.66) 46%, rgba(13, 13, 13, 0.24) 76%, rgba(13, 13, 13, 0) 100%) !important;
+            background-color: transparent !important;
+            background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0.9) 0%, rgba(13, 13, 13, 0.66) 46%, rgba(13, 13, 13, 0.24) 76%, rgba(13, 13, 13, 0) 100%) !important;
+            border-top-color: rgba(168, 167, 167, 0.18) !important;
         }
         html, body, #tej, #Intro {
             min-height: 100vh;
@@ -259,6 +294,37 @@
             background-position: center 62% !important;
             background-size: cover !important;
             background-repeat: no-repeat !important;
+        }
+        #Intro.Intro--single-photo.home-atmo {
+            position: relative;
+        }
+        #Intro.Intro--single-photo.home-atmo .home-atmosphere-layer {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        #Intro.Intro--single-photo.home-atmo .home-atmosphere-layer:before,
+        #Intro.Intro--single-photo.home-atmo .home-atmosphere-layer:after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+        }
+        #Intro.Intro--single-photo.home-atmo .home-atmosphere-layer:before {
+            inset: -18% -14% 10% -14%;
+            background:
+                radial-gradient(130% 95% at 18% 80%, var(--home-atmo-cool) 0%, transparent 62%),
+                radial-gradient(122% 92% at 78% 20%, var(--home-atmo-warm) 0%, transparent 60%);
+            opacity: 0.44;
+        }
+        #Intro.Intro--single-photo.home-atmo .home-atmosphere-layer:after {
+            inset: -12% -8%;
+            background: radial-gradient(118% 92% at 50% 48%, var(--home-atmo-neutral) 0%, transparent 68%);
+            opacity: 0.26;
+        }
+        #Intro.Intro--single-photo.home-atmo #particles-js {
+            position: relative;
+            z-index: 1;
         }
         #Intro.Intro--single-photo:after {
             background: linear-gradient(to bottom, var(--ink-overlay-start) 0%, var(--ink-overlay-end) 100%) !important;
@@ -316,17 +382,77 @@
                 background-position: 56% 26% !important;
                 background-size: cover !important;
             }
+            #Intro.Intro--single-photo.home-atmo .home-atmosphere-layer:before {
+                opacity: 0.3;
+            }
+            #Intro.Intro--single-photo.home-atmo .home-atmosphere-layer:after {
+                opacity: 0.18;
+            }
             .Navigation:not(.Navigation--scrolled) .Navigation__bar,
             .Navigation:not(.Navigation--scrolled) .Navigation__bar.navbar {
-                background: var(--ink-base) !important;
-                background-color: var(--ink-base) !important;
+                background: linear-gradient(to bottom, rgba(13, 13, 13, 0.94) 0%, rgba(13, 13, 13, 0.74) 52%, rgba(13, 13, 13, 0.28) 82%, rgba(13, 13, 13, 0) 100%) !important;
+                background-color: transparent !important;
             }
             .Navigation__bar,
             .Navigation__bar.navbar {
                 border-top: none !important;
             }
+            .Navigation__bar .navbar-header {
+                border: none !important;
+                box-shadow: none !important;
+            }
             #Intro .IntroTyping {
                 top: 80% !important;
+            }
+            footer .footer-meta {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                grid-template-columns: none;
+                row-gap: 0.46rem;
+                padding-top: 1.7rem;
+                padding-bottom: 0.7rem;
+                text-align: center;
+            }
+            footer .footer-contact,
+            footer .footer-contact--left,
+            footer .footer-contact--right {
+                justify-self: center !important;
+                text-align: center;
+            }
+            footer .footer-brand-wrap {
+                order: 1;
+                justify-self: center;
+                align-self: center;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.22rem;
+            }
+            footer .footer-contact--left {
+                order: 2;
+            }
+            footer .footer-contact--right {
+                order: 3;
+            }
+            footer .footer-contact {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.34rem;
+                line-height: 1.35;
+                font-size: 12px;
+                letter-spacing: 0.3px;
+                color: rgba(168, 167, 167, 0.8) !important;
+            }
+            footer .footer-brand-mark {
+                max-width: none !important;
+                max-height: 36px !important;
+                width: auto !important;
+            }
+            footer .footer-contact--right {
+                margin-bottom: 0.24rem;
             }
         }
 
@@ -478,15 +604,59 @@
             box-shadow: none !important;
             outline: none !important;
         }
-        #brand-cloud .blog-post-image img {
-            display: block;
+        #brand-cloud {
+            padding-top: clamp(0.95rem, 1.8vw, 1.8rem);
+            padding-bottom: clamp(0.95rem, 1.8vw, 1.8rem);
+        }
+        #brand-cloud .blog-post-image {
+            width: min(100%, 1180px);
+            margin: 0 auto;
+        }
+        #brand-cloud .logo-grid {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            column-gap: clamp(1rem, 1.7vw, 1.6rem);
+            row-gap: clamp(1rem, 1.8vw, 1.8rem);
+            align-items: center;
+            justify-items: center;
+        }
+        #brand-cloud .logo-cell {
             width: 100%;
-            height: auto;
-            background: var(--ink-deep);
-            border: none !important;
-            box-shadow: none !important;
-            outline: none !important;
+            min-height: clamp(6.2rem, 9.4vw, 8.4rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.2rem;
+        }
+        #brand-cloud .logo-cell img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: clamp(4.5rem, 6.4vw, 6rem);
+            object-fit: contain;
+            object-position: center;
+            opacity: 0.9;
+            filter: grayscale(100%) contrast(1.04) saturate(0.9);
+            border: none;
+            box-shadow: none;
+            outline: none;
             vertical-align: top;
+            transition: opacity 220ms ease, filter 220ms ease;
+        }
+        #brand-cloud .logo-cell--ultrawide img {
+            max-height: clamp(3.9rem, 5.4vw, 4.9rem);
+        }
+        #brand-cloud .logo-cell--tall img {
+            max-height: clamp(5.1rem, 7.4vw, 6.7rem);
+        }
+        @media (hover: hover) and (pointer: fine) {
+            #brand-cloud .logo-cell:hover img {
+                opacity: 1;
+                filter: grayscale(100%) contrast(1.08) saturate(0.96);
+            }
         }
         @media (min-width: 768px) {
             #About .about-me {
@@ -518,6 +688,25 @@
                 width: 100% !important;
                 max-width: 400px !important;
                 transform: none;
+            }
+        }
+        @media (max-width: 1199px) {
+            #brand-cloud .logo-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            #brand-cloud .logo-cell img {
+                max-height: clamp(4.1rem, 6.4vw, 5.5rem);
+            }
+            #brand-cloud .logo-cell--ultrawide img {
+                max-height: clamp(3.6rem, 5.4vw, 4.5rem);
+            }
+            #brand-cloud .logo-cell--tall img {
+                max-height: clamp(4.7rem, 7.2vw, 6rem);
+            }
+        }
+        @media (max-width: 900px) {
+            #brand-cloud .logo-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
         }
         @media (max-width: 767px) {
@@ -570,12 +759,57 @@
                 -ms-flex: 0 1 calc(50% - 16px) !important;
                 flex: 0 1 calc(50% - 16px) !important;
             }
+            #brand-cloud .logo-grid {
+                column-gap: 1.05rem;
+                row-gap: 1.32rem;
+            }
+            #brand-cloud .logo-cell img {
+                max-height: clamp(4.05rem, 8.8vw, 4.95rem);
+            }
+            #brand-cloud .logo-cell--ultrawide img {
+                max-height: clamp(3.15rem, 6.8vw, 3.75rem);
+                max-width: 78%;
+            }
+            #brand-cloud .logo-cell--petite img {
+                max-height: clamp(4.55rem, 9.6vw, 5.35rem);
+            }
+            #brand-cloud .logo-cell--tall img {
+                max-height: clamp(4.75rem, 10.1vw, 5.85rem);
+            }
         }
         @media (max-width: 575px) {
             #About .HomeWorkPreview .Portfolio-item {
                 max-width: calc(100% - 16px) !important;
                 -ms-flex: 0 1 calc(100% - 16px) !important;
                 flex: 0 1 calc(100% - 16px) !important;
+            }
+            #brand-cloud .logo-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                column-gap: 0.9rem;
+                row-gap: 1.16rem;
+            }
+            #brand-cloud .logo-cell {
+                min-height: 5.7rem;
+            }
+            #brand-cloud .logo-cell img {
+                max-height: 4.2rem;
+            }
+            #brand-cloud .logo-cell--ultrawide img {
+                max-height: 3.45rem;
+                max-width: 74%;
+            }
+            #brand-cloud .logo-cell--petite img {
+                max-height: 4.7rem;
+            }
+            #brand-cloud .logo-cell--tall img {
+                max-height: 4.95rem;
+            }
+            #brand-cloud {
+                padding-top: 1.05rem;
+                padding-bottom: 2.05rem;
+            }
+            footer {
+                padding-top: 0.72rem;
             }
         }
     </style>
@@ -598,7 +832,7 @@
             <nav class="Navigation__bar navbar navbar-fixed-top">
                 <div class="navbar-header">
                     <a class="navbar-brand page-scroll" href="#Intro">
-                        <img src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver" class="img-responsive" style="max-height:48px; width:auto; padding-bottom:2px;">
+                        <img src="assets/images/signature-logo-white.svg" alt="Courtney Driver" class="img-responsive" style="max-height:48px; width:auto;">
                     </a>
                     <div class="Navigation__mobile-menu">
                         <span></span>
@@ -618,7 +852,8 @@
         </div>
 
         <!-- INTRO -->
-        <div class="Intro Intro--single-photo" id="Intro" style="background-image: url(assets/images/hdr-storefront1-clean.png)">
+        <div class="Intro Intro--single-photo home-atmo" id="Intro" style="background-image: url(assets/images/hdr-storefront1-clean.png)">
+            <div class="home-atmosphere-layer" aria-hidden="true"></div>
             <div id="particles-js"></div>
         </div>
 
@@ -686,7 +921,26 @@
         <section id="brand-cloud">
             <div class="container">
                 <div class="blog-post-image">
-                    <img src="assets/images/brandlogos-dark-2026.png" alt="Brand logos">
+                    <ul class="logo-grid" aria-label="Representative brands">
+                        <li class="logo-cell"><img src="assets/images/logo/astonmartin.png" alt="Aston Martin"></li>
+                        <li class="logo-cell logo-cell--petite"><img src="assets/images/logo/bmw.png" alt="BMW"></li>
+                        <li class="logo-cell logo-cell--ultrawide"><img src="assets/images/logo/chase.png" alt="Chase"></li>
+                        <li class="logo-cell"><img src="assets/images/logo/cointreau.png" alt="Cointreau"></li>
+                        <li class="logo-cell"><img src="assets/images/logo/lexus.png" alt="Lexus"></li>
+                        <li class="logo-cell"><img src="assets/images/logo/Neiman Marcus.png" alt="Neiman Marcus"></li>
+                        <li class="logo-cell"><img src="assets/images/logo/patron.png" alt="Patron"></li>
+                        <li class="logo-cell logo-cell--ultrawide"><img src="assets/images/logo/flexjet.png" alt="Flexjet"></li>
+                        <li class="logo-cell logo-cell--tall"><img src="assets/images/logo/remy.png" alt="Remy Martin"></li>
+                        <li class="logo-cell logo-cell--tall"><img src="assets/images/logo/ritz.png" alt="Ritz-Carlton"></li>
+                        <li class="logo-cell"><img src="assets/images/logo/rolex.png" alt="Rolex"></li>
+                        <li class="logo-cell"><img src="assets/images/logo/sperry.png" alt="Sperry"></li>
+                        <li class="logo-cell"><img src="assets/images/logo/st regis.png" alt="St. Regis"></li>
+                        <li class="logo-cell"><img src="assets/images/logo/starwood.png" alt="Starwood"></li>
+                        <li class="logo-cell logo-cell--petite"><img src="assets/images/logo/stoli.png" alt="Stoli"></li>
+                        <li class="logo-cell logo-cell--petite"><img src="assets/images/logo/whotels.png" alt="W Hotels"></li>
+                        <li class="logo-cell"><img src="assets/images/logo/bombay.png" alt="Bombay Sapphire"></li>
+                        <li class="logo-cell logo-cell--petite"><img src="assets/images/logo/burberry.png" alt="Burberry"></li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -694,24 +948,10 @@
         <!-- FOOTER -->
         <footer>
             <div class="container">
-                <div class="flex-row">
-                    <div class="col-sm-4">
-                        <div class="footer-contacts">
-                            <div class="footer-contact"><i class="fa fa-phone-square"></i><a href="tel:+19494233755">949.423.3755</a></div>
-                            <div class="footer-contact"><i class="fa fa-envelope-square"></i>inquiry@courtney-driver.com</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver" style="max-width:200px; width:100%; height:auto;">
-                        <div class="copyrights">ALL RIGHTS RESERVED</div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="footer-socials text-left">
-                            <a href="https://www.linkedin.com/in/courtneydriver/" style="margin-right:10px;"><i class="fa-brands fa-linkedin fa-2x" aria-hidden="true"></i></a>
-                            <a href="https://www.instagram.com/courtneydriver" style="margin-right:10px;"><i class="fa-brands fa-instagram fa-2x" aria-hidden="true"></i></a>
-                            <a href="https://www.tiktok.com/@courtney..driver"><i class="fa-brands fa-tiktok fa-2x" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
+                <div class="footer-meta">
+                    <div class="footer-contact footer-contact--left"><i class="fa fa-phone-square"></i><a href="tel:+19494233755">949.423.3755</a></div>
+                    <div class="footer-brand-wrap"><img class="footer-brand-mark" src="assets/images/signature-logo-white.svg" alt="Courtney Driver"></div>
+                    <div class="footer-contact footer-contact--right"><i class="fa fa-envelope-square"></i><a href="mailto:inquiry@courtney-driver.com">inquiry@courtney-driver.com</a></div>
                 </div>
             </div>
         </footer>
@@ -739,7 +979,7 @@
             return false;
         }
     </script>
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js?v=20260301-4"></script>
     <script>
         (function () {
             var links = Array.prototype.slice.call(document.querySelectorAll('.Navigation__bar .navbar-nav a.page-scroll[href^="#"]'));

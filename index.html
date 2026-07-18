@@ -15,7 +15,7 @@
     <!-- CSS Libraries -->
     <link href="assets/css/libs.css" rel="stylesheet">
     <!-- Theme styles -->
-    <link href="assets/css/app.css?v=20260301-11" rel="stylesheet">
+    <link href="assets/css/app.css?v=20260301-14" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Nav transparency fix -->
@@ -84,9 +84,9 @@
         footer .footer-brand-mark {
             display: inline-block;
             max-width: none !important;
-            max-height: 48px !important;
+            height: 48px !important;
             width: auto !important;
-            height: auto;
+            max-height: none !important;
         }
         footer .footer-brand-wrap {
             justify-self: center;
@@ -235,6 +235,15 @@
             opacity: 0.95 !important;
             transform: translateX(-50%) scaleX(1) !important;
         }
+        .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(1) {
+            transform: rotate(-45deg) translateY(6px) !important;
+        }
+        .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(2) {
+            opacity: 0 !important;
+        }
+        .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(3) {
+            transform: rotate(45deg) translateY(-6px) !important;
+        }
         #About .btn.btn-black {
             border-color: var(--copy-soft) !important;
             color: var(--copy-soft) !important;
@@ -258,7 +267,7 @@
             -webkit-box-shadow: none !important;
             min-height: 0 !important;
             height: auto !important;
-            overflow: hidden !important;
+            overflow: visible !important;
         }
         .Navigation__bar .navbar-header,
         .Navigation__bar .navbar-collapse {
@@ -448,8 +457,9 @@
             }
             footer .footer-brand-mark {
                 max-width: none !important;
-                max-height: 36px !important;
+                height: 36px !important;
                 width: auto !important;
+                max-height: none !important;
             }
             footer .footer-contact--right {
                 margin-bottom: 0.24rem;
@@ -832,7 +842,7 @@
             <nav class="Navigation__bar navbar navbar-fixed-top">
                 <div class="navbar-header">
                     <a class="navbar-brand page-scroll" href="#Intro">
-                        <img src="assets/images/signature-logo-white.svg" alt="Courtney Driver" class="img-responsive" style="max-height:48px; width:auto;">
+                        <img src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver" style="height:48px; width:auto; max-width:none;">
                     </a>
                     <div class="Navigation__mobile-menu">
                         <span></span>
@@ -950,7 +960,7 @@
             <div class="container">
                 <div class="footer-meta">
                     <div class="footer-contact footer-contact--left"><i class="fa fa-phone-square"></i><a href="tel:+19494233755">949.423.3755</a></div>
-                    <div class="footer-brand-wrap"><img class="footer-brand-mark" src="assets/images/signature-logo-white.svg" alt="Courtney Driver"></div>
+                    <div class="footer-brand-wrap"><img class="footer-brand-mark" src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver"></div>
                     <div class="footer-contact footer-contact--right"><i class="fa fa-envelope-square"></i><a href="mailto:inquiry@courtney-driver.com">inquiry@courtney-driver.com</a></div>
                 </div>
             </div>

@@ -1390,7 +1390,7 @@ blockquote {
 }
 
 .Navigation--scrolled .Navigation__bar {
-  background: #000000;
+  background: linear-gradient(to bottom, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.8) 48%, rgba(13, 13, 13, 0.36) 78%, rgba(13, 13, 13, 0.08) 100%);
   padding-top: 18px;
   padding-bottom: 18px;
   min-height: auto;
@@ -1400,7 +1400,7 @@ blockquote {
   padding-top: 13px;
   padding-bottom: 13px;
   min-height: auto;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.55) 58%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to bottom, rgba(13, 13, 13, 0.9) 0%, rgba(13, 13, 13, 0.66) 46%, rgba(13, 13, 13, 0.24) 76%, rgba(13, 13, 13, 0) 100%);
 }
 
 .Navigation__mobile-menu {
@@ -1461,6 +1461,9 @@ blockquote {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -1471,7 +1474,10 @@ blockquote {
 
   .Navigation__bar .navbar-brand img {
     max-height: 30px !important;
+    max-width: none !important;
     width: auto;
+    height: auto;
+    display: block;
     padding-bottom: 0 !important;
   }
 
@@ -1489,9 +1495,10 @@ blockquote {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    height: 14px;
-    width: 22px;
-    padding: 8px 4px;
+    height: auto;
+    min-height: 16px;
+    width: 24px;
+    padding: 3px 2px;
     margin: 0;
     float: none;
     position: relative;
@@ -1499,20 +1506,22 @@ blockquote {
     border: 0 !important;
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
+    gap: 3px;
+    justify-content: flex-start;
   }
 
   .Navigation__mobile-menu span {
     transition: all 0.3s ease-in-out;
     display: block;
-    width: 22px;
-    height: 2px;
-    min-height: 2px;
-    background-color: #ffffff;
+    width: 18px;
+    height: 1.5px;
+    min-height: 1.5px;
+    background-color: rgba(255, 255, 255, 0.72);
   }
 
   .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(1) {
-    -webkit-transform: rotate(-45deg) translateY(7px);
-    transform: rotate(-45deg) translateY(7px);
+    -webkit-transform: rotate(-45deg) translateY(4px);
+    transform: rotate(-45deg) translateY(4px);
   }
 
   .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(2) {
@@ -1520,8 +1529,8 @@ blockquote {
   }
 
   .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(3) {
-    -webkit-transform: rotate(45deg) translateY(-7px);
-    transform: rotate(45deg) translateY(-7px);
+    -webkit-transform: rotate(45deg) translateY(-4px);
+    transform: rotate(45deg) translateY(-4px);
   }
 
   .Navigation__mobile-menu__bar {
@@ -2608,6 +2617,20 @@ footer .footer-socials a {
 
   footer img {
     max-width: 100px !important;
+  }
+
+  footer .footer-brand-wrap {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto !important;
+  }
+
+  footer .footer-brand-mark {
+    max-width: none !important;
+    width: auto !important;
+    height: auto !important;
+    display: block;
   }
 
   footer .copyrights {

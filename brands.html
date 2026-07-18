@@ -18,10 +18,38 @@
     <!-- CSS Libraries -->
     <link href="assets/css/libs.css" rel="stylesheet">
     <!-- Theme styles -->
-    <link href="assets/css/app.css?v=20260301-11" rel="stylesheet">
+    <link href="assets/css/app.css?v=20260301-14" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        @font-face {
+            font-family: "Calton Elegance Script";
+            src: url("assets/fonts/Calton%20Elegance%20Script.otf") format("opentype");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        :root {
+            --ink-base: #0D0D0D;
+            --ink-panel: #0D0D0D;
+            --ink-deep: #0D0D0D;
+            --copy-soft: #A8A7A7;
+        }
+        html,
+        body,
+        #tej,
+        .blog-post-page,
+        .blog-post,
+        .section--basic,
+        footer {
+            background: var(--ink-base) !important;
+            background-color: var(--ink-base) !important;
+            color: var(--copy-soft) !important;
+        }
+        footer {
+            background: linear-gradient(180deg, #0D0D0D 0%, #0D0D0D 60%, rgba(var(--tone-indigo), 0.04) 78%, rgba(var(--tone-plum), 0.06) 90%, rgba(var(--tone-wine), 0.08) 100%), #0D0D0D !important;
+            background-color: #0D0D0D !important;
+        }
         .Navigation {
             position: fixed;
             top: 0;
@@ -31,16 +59,16 @@
         }
         .Navigation__bar,
         .Navigation__bar.navbar {
-            background: #000000 !important;
-            background-color: #000000 !important;
+            background: linear-gradient(to bottom, rgba(13, 13, 13, 0.9) 0%, rgba(13, 13, 13, 0.66) 46%, rgba(13, 13, 13, 0.24) 76%, rgba(13, 13, 13, 0) 100%) !important;
+            background-color: transparent !important;
             border: none !important;
             box-shadow: none !important;
             -webkit-box-shadow: none !important;
         }
         .Navigation--scrolled .Navigation__bar,
         .Navigation--scrolled .Navigation__bar.navbar {
-            background: #000000 !important;
-            background-color: #000000 !important;
+            background: linear-gradient(to bottom, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.8) 48%, rgba(13, 13, 13, 0.36) 78%, rgba(13, 13, 13, 0.08) 100%) !important;
+            background-color: transparent !important;
         }
         .Topbar.Topbar--page {
             position: relative;
@@ -52,21 +80,58 @@
             font-size: 1.65em;
             background: transparent !important;
             background-color: transparent !important;
-            color: #000000 !important;
+            color: var(--copy-soft) !important;
             text-align: center;
         }
         .Topbar.Topbar--page .Topbar__title {
-            color: #000000 !important;
+            font-family: "Calton Elegance Script", "Times New Roman", serif !important;
+            font-weight: 400 !important;
+            text-transform: none !important;
+            letter-spacing: 0 !important;
+            color: var(--copy-soft) !important;
             padding-top: 50px;
         }
         .Topbar.Topbar--page p {
             margin: 10px 0 0;
             font-size: 16px;
             letter-spacing: 1px;
-            color: #7a7a7a;
+            color: var(--copy-soft);
         }
         #Blog-post {
             margin-top: -100px;
+        }
+        body,
+        p,
+        li,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .blog-post-entry,
+        .blog-post-entry p,
+        .blog-post-entry h4,
+        .footer-contact,
+        .copyrights,
+        .footer-socials a,
+        .footer-socials a:hover,
+        .footer-socials a:focus {
+            color: var(--copy-soft) !important;
+        }
+        .blog-post-entry a,
+        .blog-post-entry a:hover,
+        .blog-post-entry a:focus,
+        .blog-post-entry a:visited,
+        footer a,
+        footer a:hover,
+        footer a:focus,
+        footer a:visited {
+            color: inherit !important;
+        }
+        .blog-post-entry h4,
+        .blog-post-entry p,
+        .blog-post-entry li {
+            font-family: Raleway, sans-serif !important;
         }
         footer .footer-meta {
             display: grid;
@@ -87,9 +152,9 @@
         footer .footer-brand-mark {
             display: inline-block;
             max-width: none !important;
-            max-height: 48px !important;
+            height: 48px !important;
             width: auto !important;
-            height: auto;
+            max-height: none !important;
         }
         footer .footer-brand-wrap {
             justify-self: center;
@@ -100,34 +165,83 @@
             margin: 0;
             line-height: 1.45;
         }
+        .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(1) {
+            transform: rotate(-45deg) translateY(6px) !important;
+        }
+        .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(2) {
+            opacity: 0 !important;
+        }
+        .Navigation[data-mobile-nav="open"] .Navigation__mobile-menu span:nth-of-type(3) {
+            transform: rotate(45deg) translateY(-6px) !important;
+        }
         @media (max-width: 767px) {
             .Topbar.Topbar--page {
                 margin-top: 68px;
                 padding: 12px 16px;
                 font-size: 1.15em;
             }
+            .Navigation__bar,
+            .Navigation__bar.navbar {
+                background-color: transparent !important;
+                background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0.94) 0%, rgba(13, 13, 13, 0.74) 52%, rgba(13, 13, 13, 0.28) 82%, rgba(13, 13, 13, 0) 100%) !important;
+                background-repeat: no-repeat !important;
+            }
+            .blog-post-entry {
+                color: var(--copy-soft) !important;
+            }
             .Topbar.Topbar--page p {
                 font-size: 12px;
             }
             footer .footer-meta {
-                grid-template-columns: 1fr;
-                row-gap: 0.55rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                grid-template-columns: none;
+                row-gap: 0.46rem;
+                padding-top: 1.7rem;
+                padding-bottom: 0.7rem;
                 text-align: center;
             }
             footer .footer-brand-wrap,
             footer .footer-contact,
             footer .footer-contact--left,
             footer .footer-contact--right {
+                justify-self: center !important;
                 text-align: center;
             }
             footer .footer-brand-wrap {
+                order: 1;
+                align-self: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.22rem;
                 text-align: center;
-                justify-self: center;
+            }
+            footer .footer-contact--left {
+                order: 2;
+            }
+            footer .footer-contact--right {
+                order: 3;
             }
             footer .footer-brand-mark {
                 max-width: none !important;
-                max-height: 36px !important;
+                height: 36px !important;
                 width: auto !important;
+                max-height: none !important;
+            }
+            footer .footer-contact {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.34rem;
+                line-height: 1.35;
+                font-size: 12px;
+                letter-spacing: 0.3px;
+                color: rgba(168, 167, 167, 0.8) !important;
+            }
+            footer .footer-contact--right {
+                margin-bottom: 0.24rem;
             }
         }
     </style>
@@ -148,7 +262,7 @@
             <nav class="Navigation__bar navbar navbar-fixed-top">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html#Intro">
-                        <img src="assets/images/signature-logo-white.svg" alt="Courtney Driver" class="img-responsive" style="max-height:48px; width:auto;">
+                        <img src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver" style="height:48px; width:auto; max-width:none;">
                     </a>
                     <div class="Navigation__mobile-menu">
                         <span></span>
@@ -168,7 +282,7 @@
         </div>
         <div class="Topbar Topbar--page">
             <div class="Topbar__title">
-                BRANDS + AGENCIES
+                brands + agencies
             </div>
             <p>CAMPAIGNS / PARTNERSHIPS / COLLABORATIONS</p>
         </div>
@@ -201,7 +315,7 @@
             <div class="container">
                 <div class="footer-meta">
                     <div class="footer-contact footer-contact--left"><i class="fa fa-phone-square"></i><a href="tel:+19494233755">949.423.3755</a></div>
-                    <div class="footer-brand-wrap"><img class="footer-brand-mark" src="assets/images/signature-logo-white.svg" alt="Courtney Driver"></div>
+                    <div class="footer-brand-wrap"><img class="footer-brand-mark" src="assets/images/signature-logo-lowercase-white.png" alt="Courtney Driver"></div>
                     <div class="footer-contact footer-contact--right"><i class="fa fa-envelope-square"></i><a href="mailto:inquiry@courtney-driver.com">inquiry@courtney-driver.com</a></div>
                 </div>
             </div>

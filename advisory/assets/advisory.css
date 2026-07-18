@@ -505,15 +505,68 @@ html[data-theme="light"] .philosophy-line.alt {
 }
 
 .ad-footer {
-  border-top: 1px solid rgba(200, 185, 154, 0.06);
-  text-align: center;
+  border-top: none;
   margin-top: 0;
   padding: 3rem 1rem;
 }
 
-.ad-footer .script {
-  font-size: 1.2rem;
-  color: #615d59;
+.ad-footer .footer-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  row-gap: 0.45rem;
+  column-gap: clamp(0.9rem, 2vw, 2.3rem);
+  align-items: center;
+  padding: 0.2rem 0;
+}
+
+.ad-footer .footer-contact--left {
+  justify-self: start;
+  text-align: left;
+}
+
+.ad-footer .footer-contact--right {
+  justify-self: end;
+  text-align: right;
+}
+
+.ad-footer .footer-brand-mark {
+  display: inline-block;
+  max-width: none !important;
+  height: 48px !important;
+  width: auto !important;
+  max-height: none !important;
+}
+
+.ad-footer .footer-brand-wrap {
+  justify-self: center;
+  text-align: center;
+}
+
+.ad-footer .footer-contact,
+.ad-footer .copyrights {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.ad-footer .footer-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.34rem;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: rgba(168, 167, 167, 0.8);
+}
+
+.ad-footer .footer-contact a,
+.ad-footer .footer-contact a:hover,
+.ad-footer .footer-contact a:focus,
+.ad-footer .footer-contact a:visited {
+  color: inherit;
+}
+
+.ad-footer .footer-contact i {
+  color: inherit;
 }
 
 .fade {
@@ -583,6 +636,61 @@ html[data-theme="light"] .philosophy-line.alt {
   .ad-main {
     padding-top: 4rem;
     padding-bottom: 8rem;
+  }
+
+  .ad-footer .footer-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-template-columns: none;
+    row-gap: 0.46rem;
+    padding-top: 1.7rem;
+    padding-bottom: 0.7rem;
+    text-align: center;
+  }
+
+  .ad-footer .footer-contact,
+  .ad-footer .footer-brand-wrap,
+  .ad-footer .footer-contact--left,
+  .ad-footer .footer-contact--right {
+    justify-self: center !important;
+    text-align: center;
+  }
+
+  .ad-footer .footer-brand-wrap {
+    order: 1;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.22rem;
+    text-align: center;
+  }
+
+  .ad-footer .footer-contact--left {
+    order: 2;
+  }
+
+  .ad-footer .footer-contact--right {
+    order: 3;
+  }
+
+  .ad-footer .footer-brand-mark {
+    max-width: none !important;
+    height: 36px !important;
+    width: auto !important;
+    max-height: none !important;
+  }
+
+  .ad-footer .footer-contact {
+    line-height: 1.35;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    color: rgba(168, 167, 167, 0.8);
+  }
+
+  .ad-footer .footer-contact--right {
+    margin-bottom: 0.24rem;
   }
 
   .focus-grid {
